@@ -1,0 +1,169 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="..\lib\discord_sdk\cpp\achievement_manager.cpp">
+      <Filter>lib\discord_sdk\cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="..\lib\discord_sdk\cpp\activity_manager.cpp">
+      <Filter>lib\discord_sdk\cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="..\lib\discord_sdk\cpp\application_manager.cpp">
+      <Filter>lib\discord_sdk\cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="..\lib\discord_sdk\cpp\core.cpp">
+      <Filter>lib\discord_sdk\cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="..\lib\discord_sdk\cpp\image_manager.cpp">
+      <Filter>lib\discord_sdk\cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="..\lib\discord_sdk\cpp\lobby_manager.cpp">
+      <Filter>lib\discord_sdk\cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="..\lib\discord_sdk\cpp\network_manager.cpp">
+      <Filter>lib\discord_sdk\cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="..\lib\discord_sdk\cpp\overlay_manager.cpp">
+      <Filter>lib\discord_sdk\cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="..\lib\discord_sdk\cpp\relationship_manager.cpp">
+      <Filter>lib\discord_sdk\cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="..\lib\discord_sdk\cpp\storage_manager.cpp">
+      <Filter>lib\discord_sdk\cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="..\lib\discord_sdk\cpp\store_manager.cpp">
+      <Filter>lib\discord_sdk\cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="..\lib\discord_sdk\cpp\types.cpp">
+      <Filter>lib\discord_sdk\cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="..\lib\discord_sdk\cpp\user_manager.cpp">
+      <Filter>lib\discord_sdk\cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="..\lib\discord_sdk\cpp\voice_manager.cpp">
+      <Filter>lib\discord_sdk\cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="helpers\Discord.cpp">
+      <Filter>src\helpers</Filter>
+    </ClCompile>
+    <ClCompile Include="helpers\utils.cpp">
+      <Filter>src\helpers</Filter>
+    </ClCompile>
+    <ClCompile Include="main.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="helpers\Console.cpp">
+      <Filter>src\helpers</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="lib">
+      <UniqueIdentifier>{6a292675-6707-4143-89ab-fbbdc0998d00}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src">
+      <UniqueIdentifier>{d7d494cb-b7de-477c-90b6-fe9c97a83e13}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="lib\discord_sdk">
+      <UniqueIdentifier>{4633fb69-fbda-4ede-b57b-aae5a2571324}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="lib\discord_sdk\cpp">
+      <UniqueIdentifier>{3df245e8-99a2-45fe-8e24-e98b2dfe0e09}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="lib\discord_sdk\lib">
+      <UniqueIdentifier>{a6ae522f-7a7e-4467-af4e-21f768a10201}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="lib\discord_sdk\lib\x86">
+      <UniqueIdentifier>{a329da67-56bf-4fb3-873b-e43d2096f220}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="lib\json">
+      <UniqueIdentifier>{4c630f58-595d-4390-bc62-be219f0456d0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\helpers">
+      <UniqueIdentifier>{bc3942cd-61db-4d17-b3dd-809c63e7d069}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\settings">
+      <UniqueIdentifier>{f21eaef1-2b07-466b-8e45-6a910a4ec558}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\lib\discord_sdk\cpp\achievement_manager.h">
+      <Filter>lib\discord_sdk\cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="..\lib\discord_sdk\cpp\activity_manager.h">
+      <Filter>lib\discord_sdk\cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="..\lib\discord_sdk\cpp\application_manager.h">
+      <Filter>lib\discord_sdk\cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="..\lib\discord_sdk\cpp\core.h">
+      <Filter>lib\discord_sdk\cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="..\lib\discord_sdk\cpp\discord.h">
+      <Filter>lib\discord_sdk\cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="..\lib\discord_sdk\cpp\event.h">
+      <Filter>lib\discord_sdk\cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="..\lib\discord_sdk\cpp\ffi.h">
+      <Filter>lib\discord_sdk\cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="..\lib\discord_sdk\cpp\image_manager.h">
+      <Filter>lib\discord_sdk\cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="..\lib\discord_sdk\cpp\lobby_manager.h">
+      <Filter>lib\discord_sdk\cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="..\lib\discord_sdk\cpp\network_manager.h">
+      <Filter>lib\discord_sdk\cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="..\lib\discord_sdk\cpp\overlay_manager.h">
+      <Filter>lib\discord_sdk\cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="..\lib\discord_sdk\cpp\relationship_manager.h">
+      <Filter>lib\discord_sdk\cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="..\lib\discord_sdk\cpp\storage_manager.h">
+      <Filter>lib\discord_sdk\cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="..\lib\discord_sdk\cpp\store_manager.h">
+      <Filter>lib\discord_sdk\cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="..\lib\discord_sdk\cpp\types.h">
+      <Filter>lib\discord_sdk\cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="..\lib\discord_sdk\cpp\user_manager.h">
+      <Filter>lib\discord_sdk\cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="..\lib\discord_sdk\cpp\voice_manager.h">
+      <Filter>lib\discord_sdk\cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="..\lib\json\json.hpp">
+      <Filter>lib\json</Filter>
+    </ClInclude>
+    <ClInclude Include="helpers\Discord.hpp">
+      <Filter>src\helpers</Filter>
+    </ClInclude>
+    <ClInclude Include="helpers\utils.hpp">
+      <Filter>src\helpers</Filter>
+    </ClInclude>
+    <ClInclude Include="settings\factions.hpp">
+      <Filter>src\settings</Filter>
+    </ClInclude>
+    <ClInclude Include="helpers\Console.hpp">
+      <Filter>src\helpers</Filter>
+    </ClInclude>
+    <ClInclude Include="settings\logo.hpp">
+      <Filter>src\settings</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\lib\discord_sdk\lib\x86\discord_game_sdk.dll">
+      <Filter>lib\discord_sdk\lib\x86</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Library Include="..\lib\discord_sdk\lib\x86\discord_game_sdk.dll.lib">
+      <Filter>lib\discord_sdk\lib\x86</Filter>
+    </Library>
+  </ItemGroup>
+</Project>

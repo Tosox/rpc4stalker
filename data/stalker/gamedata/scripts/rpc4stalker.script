@@ -1,0 +1,52 @@
+local ini_loc = ini_file_ex("localization.ltx", true)
+local file_path = os.getenv('TEMP') .. "\\rpc4stalker.json"
+local opt_section  = "options"
+
+function write_rpc_values()
+	file = io.open(file_path, "w")
+	file:write("{ \n")
+	file:write("  \"values\": { \n")
+	
+	local loc = ini_loc:r_value("string_table", "language") or axr_main.config:r_value(opt_section, "other/localization", 0) or ""
+	file:write("  \"localization\": \"".. loc .."\"")
+	file:write(", \n")
+	
+	local lvl_name = game.translate_string(level.name()) or ""
+	file:write("  \"level\": \"".. lvl_name .."\"")
+	file:write(", \n")
+	
+	local faction_raw_name = db.actor:character_community() or ""
+	file:write("  \"faction_raw\": \"".. faction_raw_name .."\"")
+	file:write(", \n")
+	
+	local faction_name = game.translate_string(db.actor:character_community()) or ""
+	file:write("  \"faction\": \"".. faction_name .."\"")
+	file:write(", \n")
+	
+	local curr_task = ""
+	for task_id, info in pairs(task_manager.get_task_manager().task_info) do
+		if db.actor:is_active_task(db.actor:get_task(info.id, true)) then
+			curr_task = game.translate_string(info.current_title)
+			break
+		end
+	end
+	file:write("  \"task\": \"".. curr_task .."\"")
+	file:write("\n")
+
+	file:write("  } \n")
+	file:write("}")
+	file:close()
+end
+
+function actor_on_update()
+	local function manage_dump_time()
+		write_rpc_values()
+		return true
+	end
+
+	CreateTimeEvent("manage_dump_timer", "manage_dump_timer", 10.0, manage_dump_time)
+end
+
+function on_game_start()
+	RegisterScriptCallback("actor_on_update", actor_on_update)
+end
