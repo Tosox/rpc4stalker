@@ -16,6 +16,8 @@ std::string utils::faction_raw;
 std::string utils::faction;
 std::string utils::task;
 
+//---------------------------------------------------------------------------------------
+
 template <typename T>
 static void read_value(const nlohmann::json& src, T& dest)
 {
@@ -23,6 +25,8 @@ static void read_value(const nlohmann::json& src, T& dest)
 		return;
 	dest = src.get<T>();
 }
+
+//---------------------------------------------------------------------------------------
 
 void utils::LoadValues()
 {
@@ -40,15 +44,21 @@ void utils::LoadValues()
 	read_value(json["values"]["task"], utils::task);
 }
 
+//---------------------------------------------------------------------------------------
+
 std::string utils::GetDumpFilePath()
 {
 	return (!DUMP_FILE_PATH.empty() ? DUMP_FILE_PATH : "");
 }
 
+//---------------------------------------------------------------------------------------
+
 bool utils::IsDumpReady()
 {
 	return std::filesystem::exists(DUMP_FILE_PATH);
 }
+
+//---------------------------------------------------------------------------------------
 
 void utils::PrintDump()
 {
@@ -58,6 +68,8 @@ void utils::PrintDump()
 	std::cout << "Faction         : " << utils::faction.c_str() << std::endl;
 	std::cout << "Task            : " << utils::task.c_str() << std::endl;
 }
+
+//---------------------------------------------------------------------------------------
 
 std::string utils::map_find_str(const std::map<std::string, std::string>& map, std::string val, std::string callback)
 {

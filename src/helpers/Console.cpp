@@ -27,7 +27,7 @@ Console::~Console()
 
 const char* Console::GetTimeStamp() const
 {
-	char* szTime = new char[128];
+	static char* szTime = new char[128];
 
 	time_t now = time(nullptr);
 	tm tm_info{};
@@ -93,4 +93,26 @@ void Console::ask(const char* msg, const std::function<void(char* answer)>& lamb
 	std::cin.getline(input, 128);
 	lambda(input);
 	delete[] input;
+}
+
+int Console::selection(const std::vector<const char*> options, const char* enter_msg) const
+{
+	size_t input = NULL;
+
+	for (size_t i = 0; i < options.size(); ++i)
+	{
+		std::cout << i + 1 << ". " << options.at(i) << std::endl;
+	}
+	std::cout << enter_msg;
+
+	while (!input)
+	{
+		std::cin >> input;
+
+		if ((input > 0) && (input <= options.size()))
+			return input - 1;
+		input = NULL;
+	}
+
+	return NULL;
 }

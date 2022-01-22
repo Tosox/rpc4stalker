@@ -6,17 +6,21 @@
 #include "settings/factions.hpp"
 #include "settings/logo.hpp"
 
-char bfLevel[256]{};
-
 int main(int argc, char** argv)
 {
+    char bfLevel[256]{};
+
     // Init objects
     Console* console = new Console(false);
     DiscordRP* discordRP = new DiscordRP();
 
+    // Set console encryption
     console->doUTF8();
 
+    //---------------------------------------------------------------------------------------
+
     {
+        // Find discord
         console->printl(logo::bytes);
         do
         {
@@ -26,9 +30,11 @@ int main(int argc, char** argv)
         } while (!discordRP->IsReady());
         discordRP->Init("stalker_icon_0", "S.T.A.L.K.E.R.", discord::ActivityType::Playing);
 
+        // Print dump-file path
         console->log("Found dump-file path: ");
         console->printl(utils::GetDumpFilePath().c_str());
 
+        // Find dumps
         do
         {
             console->logl("Searching for dumps...");
@@ -36,6 +42,8 @@ int main(int argc, char** argv)
         } while (!utils::IsDumpReady());
         Sleep(3000);
     }
+
+    //---------------------------------------------------------------------------------------
 
     while (!GetAsyncKeyState(VK_END))
     {
@@ -60,6 +68,7 @@ int main(int argc, char** argv)
     }
     
     delete discordRP;
+    delete console;
     
     return EXIT_SUCCESS;
 }
