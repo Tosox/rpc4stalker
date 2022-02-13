@@ -155,11 +155,15 @@
     <ClInclude Include="settings\logo.hpp">
       <Filter>src\settings</Filter>
     </ClInclude>
+    <ClInclude Include="settings\language.hpp">
+      <Filter>src\settings</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="..\lib\discord_sdk\lib\x86\discord_game_sdk.dll">
       <Filter>lib\discord_sdk\lib\x86</Filter>
     </None>
+    <None Include="..\README.md" />
   </ItemGroup>
   <ItemGroup>
     <Library Include="..\lib\discord_sdk\lib\x86\discord_game_sdk.dll.lib">

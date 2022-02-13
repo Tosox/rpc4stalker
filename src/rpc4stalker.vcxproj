@@ -200,10 +200,12 @@
     <ClInclude Include="helpers\Discord.hpp" />
     <ClInclude Include="settings\factions.hpp" />
     <ClInclude Include="helpers\utils.hpp" />
+    <ClInclude Include="settings\language.hpp" />
     <ClInclude Include="settings\logo.hpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="..\lib\discord_sdk\lib\x86\discord_game_sdk.dll" />
+    <None Include="..\README.md" />
   </ItemGroup>
   <ItemGroup>
     <Library Include="..\lib\discord_sdk\lib\x86\discord_game_sdk.dll.lib" />

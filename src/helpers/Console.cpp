@@ -52,12 +52,17 @@ void Console::show() const
 	ShowWindow(GetConsoleWindow(), SW_SHOW);
 }
 
+void Console::title(const char* title) const
+{
+	SetConsoleTitleA(title);
+}
+
 void Console::print(const char* msg) const
 {
 	std::cout << msg;
 }
 
-void Console::printl(const char* msg) const
+void Console::println(const char* msg) const
 {
 	std::cout << msg << std::endl;
 }
@@ -67,7 +72,7 @@ void Console::log(const char* msg) const
 	std::cout << "[" << this->GetTimeStamp() << "] " << msg;
 }
 
-void Console::logl(const char* msg) const
+void Console::logln(const char* msg) const
 {
 	std::cout << "[" << this->GetTimeStamp() << "] " << msg << std::endl;
 }

@@ -5,6 +5,9 @@
 #include "helpers/utils.hpp"
 #include "settings/factions.hpp"
 #include "settings/logo.hpp"
+#include "settings/language.hpp"
+
+#define STALKER_APPLICATION_ID 890702387025702922
 
 int main(int argc, char** argv)
 {
@@ -14,31 +17,31 @@ int main(int argc, char** argv)
     Console* console = new Console(false);
     DiscordRP* discordRP = new DiscordRP();
 
-    // Set console encryption
     console->doUTF8();
+    console->title("rpc4stalker");
+    console->println(logo::bytes);
 
     //---------------------------------------------------------------------------------------
 
     {
         // Find discord
-        console->printl(logo::bytes);
         do
         {
-            console->logl("Searching for discord...");
-            discordRP->Create(890702387025702922);
-            Sleep(50);
+            console->logln("Searching for discord...");
+            discordRP->Create(STALKER_APPLICATION_ID);
+            Sleep(1000);
         } while (!discordRP->IsReady());
         discordRP->Init("stalker_icon_0", "S.T.A.L.K.E.R.", discord::ActivityType::Playing);
 
         // Print dump-file path
-        console->log("Found dump-file path: ");
-        console->printl(utils::GetDumpFilePath().c_str());
+        console->log("Getting dump-file path: ");
+        console->println(utils::GetDumpFilePath().c_str());
 
         // Find dumps
         do
         {
-            console->logl("Searching for dumps...");
-            Sleep(50);
+            console->logln("Searching for dumps...");
+            Sleep(1000);
         } while (!utils::IsDumpReady());
         Sleep(3000);
     }
@@ -50,7 +53,7 @@ int main(int argc, char** argv)
         utils::LoadValues();
 
         console->clear();
-        console->printl(logo::bytes);
+        console->println(logo::bytes);
         utils::PrintDump();
         
         discordRP->SetSmallImage(
@@ -58,7 +61,11 @@ int main(int argc, char** argv)
             utils::faction.c_str()
         );
 
-        sprintf_s(bfLevel, (strcmp(utils::localization.c_str(), "rus") == 0 ? u8"Изучает: %s" : "Exploring: %s"), utils::level.c_str());
+        sprintf_s(
+            bfLevel, 
+            utils::map_find_str(LANG_EXPLORING, utils::localization, "Exploring: %s").c_str(),
+            utils::level.c_str()
+        );
 
         discordRP->SetDetails(bfLevel);
         discordRP->SetState(utils::task.c_str());
