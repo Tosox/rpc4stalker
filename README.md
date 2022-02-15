@@ -29,7 +29,7 @@
 - Make sure that you use `Debug | x86` as build configuration
 
 ## Preview
-<img src="readme-res/preview.png" width="700" /> <img src="readme-res/discord.png" width="225" />
+<img src="readme-res/preview.png" width="650" height="340" /> <img src="readme-res/discord.png" width="225" height="340" />
 
 ## FAQ
 ### Which S.T.A.L.K.E.R. games is the program compatible with?
