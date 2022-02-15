@@ -31,7 +31,7 @@ int main(int argc, char** argv)
         discordRP->Init("stalker_icon_0", "S.T.A.L.K.E.R.", discord::ActivityType::Playing);
 
         // Print dump file path
-        console->log("Getting dump-file path: ");
+        console->log("Getting dump file path: ");
         console->println(utils::GetDumpFilePath().c_str());
 
         // Find dumps
