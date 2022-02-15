@@ -3,7 +3,9 @@
 #include <map>
 #include <string>
 
-const std::map<std::string, std::string> STALKER_COMMUNITIES = {
+namespace config
+{
+	const std::map<std::string, std::string> mCommunities = {
 	{"actor_stalker", "stalker_patch_stalker"},
 	{"actor_bandit", "stalker_patch_bandit"},
 	{"actor_csky", "stalker_patch_csky"},
@@ -16,4 +18,10 @@ const std::map<std::string, std::string> STALKER_COMMUNITIES = {
 	{"actor_renegade", "stalker_patch_renegade"},
 	{"actor_isg", "stalker_patch_isg"},
 	{"actor_greh", "stalker_patch_greh"}
-};
+	};
+
+	const std::map<std::string, std::string> mLanguage = {
+		{"eng", "Exploring: %s"},
+		{"rus", u8"Изучает: %s"}
+	};
+}

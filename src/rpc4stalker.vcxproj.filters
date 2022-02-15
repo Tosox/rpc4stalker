@@ -146,16 +146,13 @@
     <ClInclude Include="helpers\utils.hpp">
       <Filter>src\helpers</Filter>
     </ClInclude>
-    <ClInclude Include="settings\factions.hpp">
+    <ClInclude Include="settings\config.hpp">
       <Filter>src\settings</Filter>
     </ClInclude>
     <ClInclude Include="helpers\Console.hpp">
       <Filter>src\helpers</Filter>
     </ClInclude>
     <ClInclude Include="settings\logo.hpp">
-      <Filter>src\settings</Filter>
-    </ClInclude>
-    <ClInclude Include="settings\language.hpp">
       <Filter>src\settings</Filter>
     </ClInclude>
   </ItemGroup>

@@ -198,9 +198,8 @@
     <ClInclude Include="..\lib\json\json.hpp" />
     <ClInclude Include="helpers\Console.hpp" />
     <ClInclude Include="helpers\Discord.hpp" />
-    <ClInclude Include="settings\factions.hpp" />
+    <ClInclude Include="settings\config.hpp" />
     <ClInclude Include="helpers\utils.hpp" />
-    <ClInclude Include="settings\language.hpp" />
     <ClInclude Include="settings\logo.hpp" />
   </ItemGroup>
   <ItemGroup>

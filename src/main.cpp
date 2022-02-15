@@ -3,16 +3,13 @@
 #include "helpers/Discord.hpp"
 #include "helpers/Console.hpp"
 #include "helpers/utils.hpp"
-#include "settings/factions.hpp"
+#include "settings/config.hpp"
 #include "settings/logo.hpp"
-#include "settings/language.hpp"
 
 #define STALKER_APPLICATION_ID 890702387025702922
 
 int main(int argc, char** argv)
 {
-    char bfLevel[256]{};
-
     // Init objects
     Console* console = new Console(false);
     DiscordRP* discordRP = new DiscordRP();
@@ -33,7 +30,7 @@ int main(int argc, char** argv)
         } while (!discordRP->IsReady());
         discordRP->Init("stalker_icon_0", "S.T.A.L.K.E.R.", discord::ActivityType::Playing);
 
-        // Print dump-file path
+        // Print dump file path
         console->log("Getting dump-file path: ");
         console->println(utils::GetDumpFilePath().c_str());
 
@@ -48,8 +45,10 @@ int main(int argc, char** argv)
 
     //---------------------------------------------------------------------------------------
 
+    static char bfLevel[256]{};
     while (!GetAsyncKeyState(VK_END))
     {
+
         utils::LoadValues();
 
         console->clear();
@@ -57,13 +56,13 @@ int main(int argc, char** argv)
         utils::PrintDump();
         
         discordRP->SetSmallImage(
-            utils::map_find_str(STALKER_COMMUNITIES, utils::faction_raw, "stalker_patch_stalker").c_str(),
+            utils::map_find_str(config::mCommunities, utils::faction_raw, "stalker_patch_stalker").c_str(),
             utils::faction.c_str()
         );
 
         sprintf_s(
             bfLevel, 
-            utils::map_find_str(LANG_EXPLORING, utils::localization, "Exploring: %s").c_str(),
+            utils::map_find_str(config::mLanguage, utils::localization, "Exploring: %s").c_str(),
             utils::level.c_str()
         );
 
