@@ -20,9 +20,13 @@
 
 ## Installation
 - Download the latest [release](https://github.com/TosoxDev/rpc4stalker/releases)
-- Open the compressed file and install the mod located in the 'data' folder like any other mod for S.T.A.L.K.E.R.
+- Open the compressed file and install the mod located in the `data` folder like any other mod for S.T.A.L.K.E.R.
 - Open the game and load a save
 - Run the program
+
+## Compilation
+- `C++ 17` is required for compilation
+- Make sure that you use `Debug | x86` as build configuration
 
 ## Preview
 <img src="readme-res/preview.png" width="700" /> <img src="readme-res/discord.png" width="225" />
@@ -32,7 +36,7 @@
 It is compatible with all games derived from the [Call of Chernobyl](https://www.moddb.com/mods/call-of-chernobyl) mod. Unfortunately, this does not include the three original games. A list of tested games can be found [here](readme-res/compatibility.txt).
 
 ### How does the program work?
-The mod that needs to be installed is the most important part of this program. It saves the data to be displayed in the discord status in a file in '%temp%\rpc4stalker.json'. The executable is only responsible for reading and transmitting the data to discord via their [GameSDK](https://discord.com/developers/docs/game-sdk/sdk-starter-guide).
+The mod that needs to be installed is the most important part of this program. It saves the data to be displayed in the discord status in a file in `%temp%\rpc4stalker.json`. The executable is only responsible for reading and transmitting the data to discord via their [GameSDK](https://discord.com/developers/docs/game-sdk/sdk-starter-guide).
 
 ### Which languages are supported?
 The Latin and Cyrillic script were successfully tested.
