@@ -2,7 +2,9 @@
 [![C++](https://img.shields.io/badge/Language-C%2B%2B-%23f34b7d.svg?style=flat)](https://en.wikipedia.org/wiki/C%2B%2B) 
 [![S.T.A.L.K.E.R.](https://img.shields.io/badge/Game-S.T.A.L.K.E.R.-yellow.svg?style=flat)](https://store.steampowered.com/app/41700/STALKER_Call_of_Pripyat) 
 [![Windows](https://img.shields.io/badge/Platform-Windows-0078d7.svg?style=flat)](https://en.wikipedia.org/wiki/Microsoft_Windows) 
-[![x86](https://img.shields.io/badge/Arch-x86-red.svg?style=flat)](https://en.wikipedia.org/wiki/X86) 
+[![x86](https://img.shields.io/badge/Arch-x86-green.svg?style=flat)](https://en.wikipedia.org/wiki/X86)
+[![Moddb](https://img.shields.io/badge/Moddb-Download-red.svg?style=flat)](https://www.moddb.com/mods/call-of-chernobyl/addons/rpc4stalker)
+
 
 ```
                                $$\   $$\             $$\               $$\ $$\                           
@@ -41,7 +43,7 @@ The mod that needs to be installed is the most important part of this program. I
 ### Which languages are supported?
 The Latin and Cyrillic script were successfully tested.
 
-### Can the mod conflict with other S.T.A.L.K.E.R. mods?
+### Can the mod conflict with other mods?
 No, because no files need to be overwritten during the installation.
 
 ## Credits
