@@ -11,6 +11,7 @@ public:
 	void Create(discord::ClientId);
 	bool IsReady();
 	void Init(const char* image, const char* text, discord::ActivityType type);
+
 	void SetType(discord::ActivityType type);
 	void SetDetails(const char* detail);
 	void SetState(const char* state);

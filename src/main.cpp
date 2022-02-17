@@ -26,33 +26,34 @@ int main(int argc, char** argv)
         {
             console->logln("Searching for discord...");
             discordRP->Create(STALKER_APPLICATION_ID);
-            Sleep(1000);
+            Sleep(700);
         } while (!discordRP->IsReady());
         discordRP->Init("stalker_icon_0", "S.T.A.L.K.E.R.", discord::ActivityType::Playing);
 
         // Print dump file path
         console->log("Getting dump file path: ");
         console->println(utils::GetDumpFilePath().c_str());
+        Sleep(700);
 
         // Find dumps
         do
         {
             console->logln("Searching for dumps...");
-            Sleep(1000);
+            Sleep(700);
         } while (!utils::IsDumpReady());
-        Sleep(3000);
+
+        Sleep(2000);
     }
 
     //---------------------------------------------------------------------------------------
 
     static char bfLevel[256]{};
-    while (!GetAsyncKeyState(VK_END))
-    {
-
-        utils::LoadValues();
-
+    while (discordRP->IsReady())
+    {   
         console->clear();
         console->println(logo::bytes);
+
+        utils::LoadValues();
         utils::PrintDump();
         
         discordRP->SetSmallImage(
