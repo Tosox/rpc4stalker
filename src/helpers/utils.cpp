@@ -12,6 +12,7 @@ std::string DUMP_FILE_PATH = std::filesystem::temp_directory_path().string() + D
 
 std::string utils::localization;
 std::string utils::level;
+std::string utils::time;
 std::string utils::faction_raw;
 std::string utils::faction;
 std::string utils::task;
@@ -39,6 +40,7 @@ void utils::LoadValues()
 
 	read_value(json["values"]["localization"], utils::localization);
 	read_value(json["values"]["level"], utils::level);
+	read_value(json["values"]["time"], utils::time);
 	read_value(json["values"]["faction_raw"], utils::faction_raw);
 	read_value(json["values"]["faction"], utils::faction);
 	read_value(json["values"]["task"], utils::task);
@@ -64,6 +66,7 @@ void utils::PrintDump()
 {
 	std::cout << "Localization    : " << utils::localization.c_str() << std::endl;
 	std::cout << "Level           : " << utils::level.c_str() << std::endl;
+	std::cout << "Time            : " << utils::time.c_str() << std::endl;
 	std::cout << "Faction (raw)   : " << utils::faction_raw.c_str() << std::endl;
 	std::cout << "Faction         : " << utils::faction.c_str() << std::endl;
 	std::cout << "Task            : " << utils::task.c_str() << std::endl;

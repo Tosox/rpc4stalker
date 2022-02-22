@@ -63,7 +63,8 @@ int main(int argc, char** argv)
 
         sprintf_s(
             bfLevel, 
-            utils::map_find_str(config::mLanguage, utils::localization, "Exploring: %s").c_str(),
+            utils::map_find_str(config::mLanguage, utils::localization, "[%s] Exploring: %s").c_str(),
+            utils::time.c_str(),
             utils::level.c_str()
         );
 

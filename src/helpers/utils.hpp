@@ -7,6 +7,7 @@ namespace utils
 {
 	extern std::string localization;
 	extern std::string level;
+	extern std::string time;
 	extern std::string faction_raw;
 	extern std::string faction;
 	extern std::string task;

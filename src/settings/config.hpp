@@ -21,7 +21,7 @@ namespace config
 	};
 
 	const std::map<std::string, std::string> mLanguage = {
-		{"eng", "Exploring: %s"},
-		{"rus", u8"Изучает: %s"}
+		{"eng", "[%s] Exploring: %s"},
+		{"rus", u8"[%s] Изучает: %s"}
 	};
 }
