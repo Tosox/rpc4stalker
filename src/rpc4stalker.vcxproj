@@ -206,11 +206,10 @@
     <ClInclude Include="settings\logo.hpp" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="..\lib\discord_sdk\lib\x86\discord_game_sdk.dll" />
     <None Include="..\README.md" />
   </ItemGroup>
   <ItemGroup>
-    <Library Include="..\lib\discord_sdk\lib\x86\discord_game_sdk.dll.lib" />
+    <Library Include="..\lib\discord_sdk\lib\discord_game_sdk.dll.lib" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

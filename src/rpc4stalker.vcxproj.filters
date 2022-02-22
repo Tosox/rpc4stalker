@@ -72,9 +72,6 @@
     <Filter Include="lib\discord_sdk\lib">
       <UniqueIdentifier>{a6ae522f-7a7e-4467-af4e-21f768a10201}</UniqueIdentifier>
     </Filter>
-    <Filter Include="lib\discord_sdk\lib\x86">
-      <UniqueIdentifier>{a329da67-56bf-4fb3-873b-e43d2096f220}</UniqueIdentifier>
-    </Filter>
     <Filter Include="lib\json">
       <UniqueIdentifier>{4c630f58-595d-4390-bc62-be219f0456d0}</UniqueIdentifier>
     </Filter>
@@ -157,14 +154,11 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <None Include="..\lib\discord_sdk\lib\x86\discord_game_sdk.dll">
-      <Filter>lib\discord_sdk\lib\x86</Filter>
-    </None>
     <None Include="..\README.md" />
   </ItemGroup>
   <ItemGroup>
-    <Library Include="..\lib\discord_sdk\lib\x86\discord_game_sdk.dll.lib">
-      <Filter>lib\discord_sdk\lib\x86</Filter>
+    <Library Include="..\lib\discord_sdk\lib\discord_game_sdk.dll.lib">
+      <Filter>lib\discord_sdk\lib</Filter>
     </Library>
   </ItemGroup>
 </Project>
