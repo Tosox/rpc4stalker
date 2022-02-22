@@ -3,7 +3,7 @@
 [![S.T.A.L.K.E.R.](https://img.shields.io/badge/Game-S.T.A.L.K.E.R.-yellow.svg?style=flat)](https://store.steampowered.com/app/41700/STALKER_Call_of_Pripyat) 
 [![Windows](https://img.shields.io/badge/Platform-Windows-0078d7.svg?style=flat)](https://en.wikipedia.org/wiki/Microsoft_Windows) 
 [![x86](https://img.shields.io/badge/Arch-x86-green.svg?style=flat)](https://en.wikipedia.org/wiki/X86)
-[![ModDB](https://img.shields.io/badge/ModDB-Download-red.svg?style=flat)](https://www.moddb.com/mods/call-of-chernobyl/addons/rpc4stalker)
+[![Mod DB](https://img.shields.io/badge/ModDB-Download-red.svg?style=flat)](https://www.moddb.com/mods/call-of-chernobyl/addons/rpc4stalker)
 
 > Note: *This mod is only compatible with games based on [Call of Chernobyl](https://www.moddb.com/mods/call-of-chernobyl)*
 
@@ -24,12 +24,13 @@
 ## Installation
 - Download the latest [release](https://github.com/TosoxDev/rpc4stalker/releases)
 - Open the compressed file and install the mod located in the `data` folder like any other mod for S.T.A.L.K.E.R.
+- Install both VC Redistributables located in the `redist` folder
 - Open the game and load a save
 - Run the program
 
 ## Compilation
 - `C++ 17` is required for compilation
-- Make sure that you use `Debug | x86` as build configuration
+- Make sure that you use `Debug | x86` or `Release | x86` as build configuration
 
 ## Preview
 <img src="readme-res/preview.png" width="650" height="340" /> <img src="readme-res/discord.png" width="225" height="340" />
