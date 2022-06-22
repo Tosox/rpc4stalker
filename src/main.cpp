@@ -1,22 +1,29 @@
-﻿#include <Windows.h>
-#include <json/json.hpp>
-#include "helpers/Discord.hpp"
-#include "helpers/Console.hpp"
-#include "helpers/utils.hpp"
-#include "settings/config.hpp"
-#include "settings/logo.hpp"
+﻿#include <thread>
 
-#define STALKER_APPLICATION_ID 890702387025702922
+#include "DiscordManager.hpp"
+#include "Dumper.hpp"
+#include "utils.hpp"
+#include "globals.hpp"
 
 int main(int argc, char** argv)
 {
     // Init objects
-    Console* console = new Console(false);
-    DiscordRP* discordRP = new DiscordRP();
+    DiscordManager discord;
+    Dumper dumper;
 
-    console->doUTF8();
-    console->title("rpc4stalker");
-    console->println(logo::bytes);
+    std::string localization;
+    std::string level;
+    std::string time;
+    std::string faction_raw;
+    std::string faction;
+    std::string task;
+
+    SetConsoleOutputCP(CP_UTF8);
+    SetConsoleTitleA(APPLICATION_NAME.c_str());
+    printf_s("%s\n", LOGO);
+
+    const std::filesystem::path path = std::filesystem::temp_directory_path().string() + APPLICATION_NAME + ".json";
+    dumper.SetDumpPath(path);
 
     //---------------------------------------------------------------------------------------
 
@@ -24,59 +31,70 @@ int main(int argc, char** argv)
         // Find discord
         do
         {
-            console->logln("Searching for discord...");
-            discordRP->Create(STALKER_APPLICATION_ID);
-            Sleep(700);
-        } while (!discordRP->IsReady());
-        discordRP->Init("stalker_icon_0", "S.T.A.L.K.E.R.", discord::ActivityType::Playing);
+            printf_s("Searching for discord...\n");
+            discord.Create(DISCORD_APPLICATION_ID);
+            std::this_thread::sleep_for(std::chrono::milliseconds(700));
+        } while (!discord.IsReady());
 
         // Print dump file path
-        console->log("Getting dump file path: ");
-        console->println(utils::GetDumpFilePath().c_str());
-        Sleep(700);
+        printf_s("Getting dump file path...\n");
+        std::this_thread::sleep_for(std::chrono::milliseconds(700));
 
         // Find dumps
         do
         {
-            console->logln("Searching for dumps...");
-            Sleep(700);
-        } while (!utils::IsDumpReady());
+            printf_s("Searching for dumps...\n");
+            std::this_thread::sleep_for(std::chrono::milliseconds(700));
+        } while (!dumper.IsDumpReady());
 
-        Sleep(2000);
+        discord.AddTimestamp();
+        discord.SetType(discord::ActivityType::Playing);
+        discord.SetLargeImage("stalker_icon_0", "S.T.A.L.K.E.R.");
+
+        std::this_thread::sleep_for(std::chrono::milliseconds(2000));
     }
 
     //---------------------------------------------------------------------------------------
 
-    static char bfLevel[256]{};
-    while (discordRP->IsReady())
+    while (discord.IsReady())
     {   
-        console->clear();
-        console->println(logo::bytes);
+        system("cls");
 
-        utils::LoadValues();
-        utils::PrintDump();
+        printf_s("%s\n", LOGO);
+
+        dumper.LoadValue(localization, { "values", "localization" });
+        dumper.LoadValue(level, { "values", "level" });
+        dumper.LoadValue(time, { "values", "time" });
+        dumper.LoadValue(faction_raw, { "values", "faction_raw" });
+        dumper.LoadValue(faction, { "values", "faction" });
+        dumper.LoadValue(task, { "values", "task" });
+
+        dumper.PrintDump({
+            std::make_pair("Localization", localization),
+            std::make_pair("Level", level),
+            std::make_pair("Faction (raw)", faction_raw),
+            std::make_pair("Faction", faction),
+            std::make_pair("Task", task)
+        });
         
-        discordRP->SetSmallImage(
-            utils::map_find_str(config::mCommunities, utils::faction_raw, "stalker_patch_stalker").c_str(),
-            utils::faction.c_str()
+        discord.SetSmallImage(
+            utils::FindStrStrMap(COMMUNITY_TABLE, faction_raw, "stalker_patch_stalker").c_str(),
+            faction.c_str()
         );
 
+        static char bfLevel[256]{};
         sprintf_s(
             bfLevel, 
-            utils::map_find_str(config::mLanguage, utils::localization, "[%s] Exploring: %s").c_str(),
-            utils::time.c_str(),
-            utils::level.c_str()
+            utils::FindStrStrMap(LANGUAGE_TABLE, localization, "Exploring: %s").c_str(),
+            level.c_str()
         );
 
-        discordRP->SetDetails(bfLevel);
-        discordRP->SetState(utils::task.c_str());
-        discordRP->Update();
+        discord.SetDetails(bfLevel);
+        discord.SetState(task.c_str());
+        discord.Update();
 
-        Sleep(5000);
+        std::this_thread::sleep_for(std::chrono::milliseconds(5000));
     }
-    
-    delete discordRP;
-    delete console;
     
     return EXIT_SUCCESS;
 }
