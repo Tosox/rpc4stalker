@@ -1,13 +1,12 @@
 local ini_loc = ini_file_ex("localization.ltx", true)
 local file_path = os.getenv('TEMP') .. "\\rpc4stalker.json"
-local opt_section  = "options"
 
 function write_rpc_values()
 	file = io.open(file_path, "w")
 	file:write("{ \n")
 	file:write("  \"values\": { \n")
 	
-	local loc = ini_loc:r_value("string_table", "language") or axr_main.config:r_value(opt_section, "other/localization", 0) or ""
+	local loc = ini_loc:r_value("string_table", "language") or axr_main.config:r_value("options", "other/localization", 0) or ""
 	file:write("  \"localization\": \"".. loc .."\"")
 	file:write(", \n")
 	
@@ -15,17 +14,17 @@ function write_rpc_values()
 	file:write("  \"level\": \"".. lvl_name .."\"")
 	file:write(", \n")
 	
-	local mins = game.translate_string(level.get_time_minutes())
-	if tonumber(mins) < 10 then
-		mins = "0" .. mins
-	end
-	local hours = game.translate_string(level.get_time_hours())
-	if tonumber(hours) < 10 then
-		hours = "0" .. hours
-	end
-	local lvl_time = (hours .. ":" .. mins) or ""
-	file:write("  \"time\": \"".. lvl_time .."\"")
-	file:write(", \n")
+	--local mins = game.translate_string(level.get_time_minutes())
+	--if tonumber(mins) < 10 then
+	--	mins = "0" .. mins
+	--end
+	--local hours = game.translate_string(level.get_time_hours())
+	--if tonumber(hours) < 10 then
+	--	hours = "0" .. hours
+	--end
+	--local lvl_time = (hours .. ":" .. mins) or ""
+	--file:write("  \"time\": \"".. lvl_time .."\"")
+	--file:write(", \n")
 	
 	local faction_raw_name = db.actor:character_community() or ""
 	file:write("  \"faction_raw\": \"".. faction_raw_name .."\"")
