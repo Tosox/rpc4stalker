@@ -11,11 +11,11 @@ public:
 	DiscordManager();
 	~DiscordManager();
 
-	void Create(discord::ClientId);
+	void Create(const discord::ClientId);
 	bool IsReady();
 
 	void AddTimestamp();
-	void SetType(discord::ActivityType type);
+	void SetType(const discord::ActivityType type);
 	void SetDetails(const char* detail);
 	void SetState(const char* state);
 	void SetLargeImage(const char* image, const char* text = nullptr);

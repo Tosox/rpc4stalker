@@ -7,14 +7,14 @@
 
 #include "globals.hpp"
 
-void Dumper::SetDumpPath(std::filesystem::path path)
+void Dumper::SetDumpPath(const std::filesystem::path path)
 {
 	std::ifstream input_file{ path };
 	if (!input_file.good())
 		throw std::runtime_error("Invalid dump file");
 
 	dumpPath = path;
-	try { input_file >> dump; } 
+	try { input_file >> dump; }
 	catch (std::runtime_error&) { throw std::runtime_error("Invalid json format"); }
 }
 
@@ -23,7 +23,7 @@ bool Dumper::IsDumpReady()
 	return std::filesystem::exists(dumpPath);
 }
 
-void Dumper::LoadValue(std::string& value, std::vector<std::string> location)
+void Dumper::LoadValue(std::string value, std::vector<std::string> location)
 {
 	nlohmann::json obj{};
 	obj.update(dump);

@@ -13,10 +13,10 @@ class Dumper
 public:
 	inline std::string GetAbsoluteDumpPath() { return !dumpPath.empty() ? dumpPath.string() : ""; };
 
-	void SetDumpPath(std::filesystem::path path);
+	void SetDumpPath(const std::filesystem::path path);
 	bool IsDumpReady();
 
-	void LoadValue(std::string& value, std::vector<std::string> location);
+	void LoadValue(std::string value, std::vector<std::string> location);
 
 	void PrintDump(std::vector<sspair> pairs);
 

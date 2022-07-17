@@ -12,7 +12,7 @@ DiscordManager::~DiscordManager()
     delete m_Core;
 }
 
-void DiscordManager::Create(discord::ClientId clientid)
+void DiscordManager::Create(const discord::ClientId clientid)
 {
     m_Result = discord::Core::Create(clientid, DiscordCreateFlags_NoRequireDiscord, &m_Core);
 }
@@ -27,7 +27,7 @@ void DiscordManager::AddTimestamp()
     m_Activity.GetTimestamps().SetStart(std::chrono::duration_cast<std::chrono::seconds>(std::chrono::system_clock::now().time_since_epoch()).count());
 }
 
-void DiscordManager::SetType(discord::ActivityType type)
+void DiscordManager::SetType(const discord::ActivityType type)
 {
     m_Activity.SetType(type);
 }

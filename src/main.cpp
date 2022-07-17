@@ -22,9 +22,6 @@ int main(int argc, char** argv)
     SetConsoleTitleA(APPLICATION_NAME.c_str());
     printf_s("%s\n", LOGO);
 
-    const std::filesystem::path path = std::filesystem::temp_directory_path().string() + APPLICATION_NAME + ".json";
-    dumper.SetDumpPath(path);
-
     //---------------------------------------------------------------------------------------
 
     {
@@ -38,6 +35,8 @@ int main(int argc, char** argv)
 
         // Print dump file path
         printf_s("Getting dump file path...\n");
+        const std::filesystem::path path = std::filesystem::temp_directory_path().string() + APPLICATION_NAME + ".json";
+        dumper.SetDumpPath(path);
         std::this_thread::sleep_for(std::chrono::milliseconds(700));
 
         // Find dumps
