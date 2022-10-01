@@ -28,21 +28,21 @@ int main(int argc, char** argv)
         // Find discord
         do
         {
-            printf_s("Searching for discord...\n");
+            printf_s("%s Searching for discord...\n", utils::_CYAN("[*]").c_str());
             discord.Create(DISCORD_APPLICATION_ID);
             std::this_thread::sleep_for(std::chrono::milliseconds(700));
         } while (!discord.IsReady());
 
         // Print dump file path
-        printf_s("Getting dump file path...\n");
+        printf_s("%s Getting dump file path...\n", utils::_CYAN("[*]").c_str());
         const std::filesystem::path path = std::filesystem::temp_directory_path().string() + APPLICATION_NAME + ".json";
-        dumper.SetDumpPath(path);
+        dumper.SetDumpPath(path.string());
         std::this_thread::sleep_for(std::chrono::milliseconds(700));
 
         // Find dumps
         do
         {
-            printf_s("Searching for dumps...\n");
+            printf_s("%s Searching for dumps...\n", utils::_CYAN("[*]").c_str());
             std::this_thread::sleep_for(std::chrono::milliseconds(700));
         } while (!dumper.IsDumpReady());
 
@@ -63,7 +63,6 @@ int main(int argc, char** argv)
 
         dumper.LoadValue(localization, { "values", "localization" });
         dumper.LoadValue(level, { "values", "level" });
-        dumper.LoadValue(time, { "values", "time" });
         dumper.LoadValue(faction_raw, { "values", "faction_raw" });
         dumper.LoadValue(faction, { "values", "faction" });
         dumper.LoadValue(task, { "values", "task" });
@@ -81,14 +80,14 @@ int main(int argc, char** argv)
             faction.c_str()
         );
 
-        static char bfLevel[256]{};
+        static char szLevel[256]{};
         sprintf_s(
-            bfLevel, 
+            szLevel,
             utils::FindStrStrMap(LANGUAGE_TABLE, localization, "Exploring: %s").c_str(),
             level.c_str()
         );
 
-        discord.SetDetails(bfLevel);
+        discord.SetDetails(szLevel);
         discord.SetState(task.c_str());
         discord.Update();
 
