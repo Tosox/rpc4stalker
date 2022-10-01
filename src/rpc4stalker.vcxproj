@@ -41,7 +41,7 @@
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
-    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <PlatformToolset>v143</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
@@ -75,19 +75,27 @@
     <LinkIncremental>true</LinkIncremental>
     <LibraryPath>..\lib\discord_sdk\lib\x86;$(LibraryPath)</LibraryPath>
     <IncludePath>..\lib\discord_sdk\include;$(IncludePath)</IncludePath>
+    <OutDir>$(SolutionDir)\_build\$(Configuration)\</OutDir>
+    <IntDir>$(SolutionDir)\_build\$(Configuration)\dbg\</IntDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
     <IncludePath>../lib/discord_sdk/include;$(IncludePath)</IncludePath>
     <LibraryPath>../lib/discord_sdk/lib/x86;$(LibraryPath)</LibraryPath>
+    <OutDir>$(SolutionDir)\_build\$(Configuration)\</OutDir>
+    <IntDir>$(SolutionDir)\_build\$(Configuration)\dbg\</IntDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
+    <OutDir>$(SolutionDir)\_build\$(Configuration)\</OutDir>
+    <IntDir>$(SolutionDir)\_build\$(Configuration)\dbg\</IntDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
     <IncludePath>..\lib\discord_sdk\cpp;$(IncludePath)</IncludePath>
     <LibraryPath>..\lib\discord_sdk\lib;$(LibraryPath)</LibraryPath>
+    <OutDir>$(SolutionDir)\_build\$(Configuration)\</OutDir>
+    <IntDir>$(SolutionDir)\_build\$(Configuration)\dbg\</IntDir>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -136,6 +144,7 @@
       <ConformanceMode>true</ConformanceMode>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
+      <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
