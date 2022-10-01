@@ -24,13 +24,13 @@
 ## Installation
 - Download the latest [release](https://github.com/TosoxDev/rpc4stalker/releases)
 - Open the compressed file and install the mod located in the `data` folder like any other mod for S.T.A.L.K.E.R.
-- Install both VC Redistributables located in the `redist` folder
+- Install both VC Redistributables located in the `redist` folder if necessary
 - Open the game and load a save
 - Run the program
 
 ## Compilation
 - `C++ 17` is required for compilation
-- Make sure that you use `Debug | x86` or `Release | x86` as build configuration
+- Make sure that you use `Release | x86` as build configuration
 
 ## Preview
 <img src="readme-res/preview.png" width="650" height="340" /> <img src="readme-res/discord.png" width="225" height="340" />
