@@ -48,7 +48,8 @@ void Dumper::LoadValue(std::string& value, std::vector<std::string> location)
 	}
 	catch (nlohmann::detail::type_error&)
 	{
-		utils::ThrowError("Could not find value at '" + GetLocationString(location) + "'.");
+		utils::ThrowError("Value at '" + GetLocationString(location) + "' is invalid.");
+		value = "";
 	}
 }
 
@@ -61,7 +62,9 @@ void Dumper::PrintDump(std::vector<sspair> pairs)
 		pair.first.resize(20, ' ');
 		if (!pair.second.empty())
 		{
-			stream << utils::_GREEN("[.] ") 
+			// TODO: Fix this hardcoded garbage and blame cpp
+			// Color green
+			stream << "\033[32m" << "[.] " << "\033[00m"
 				<< pair.first.c_str()
 				<< " : "
 				<< pair.second.c_str()
@@ -69,5 +72,5 @@ void Dumper::PrintDump(std::vector<sspair> pairs)
 		}
 	}
 
-	printf_s("%s", stream.str().c_str());
+	std::cout << stream.str().c_str() << std::endl;
 }

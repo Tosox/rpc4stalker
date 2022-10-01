@@ -2,7 +2,7 @@
 
 void utils::ThrowError(const std::string& message)
 {
-	printf_s("%s %s\n", _RED("[!]").c_str(), message.c_str());
+	std::cout << _F_RED << "[!] " << _F_WHITE << message << std::endl;
 }
 
 void utils::ThrowErrorAndExit(const std::string& message)

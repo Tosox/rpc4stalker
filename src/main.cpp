@@ -20,7 +20,7 @@ int main(int argc, char** argv)
 
     SetConsoleOutputCP(CP_UTF8);
     SetConsoleTitleA(APPLICATION_NAME.c_str());
-    printf_s("%s\n", LOGO);
+    std::cout << LOGO << std::endl;
 
     //---------------------------------------------------------------------------------------
 
@@ -28,13 +28,13 @@ int main(int argc, char** argv)
         // Find discord
         do
         {
-            printf_s("%s Searching for discord...\n", utils::_CYAN("[*]").c_str());
+            std::cout << _F_BLUE << "[*] " << _F_WHITE << "Searching for discord..." << std::endl;
             discord.Create(DISCORD_APPLICATION_ID);
             std::this_thread::sleep_for(std::chrono::milliseconds(700));
         } while (!discord.IsReady());
 
         // Print dump file path
-        printf_s("%s Getting dump file path...\n", utils::_CYAN("[*]").c_str());
+        std::cout << _F_BLUE << "[*] " << _F_WHITE << "Getting dump file path..." << std::endl;
         const std::filesystem::path path = std::filesystem::temp_directory_path().string() + APPLICATION_NAME + ".json";
         dumper.SetDumpPath(path.string());
         std::this_thread::sleep_for(std::chrono::milliseconds(700));
@@ -42,7 +42,7 @@ int main(int argc, char** argv)
         // Find dumps
         do
         {
-            printf_s("%s Searching for dumps...\n", utils::_CYAN("[*]").c_str());
+            std::cout << _F_BLUE << "[*] " << _F_WHITE << "Searching for dumps..." << std::endl;
             std::this_thread::sleep_for(std::chrono::milliseconds(700));
         } while (!dumper.IsDumpReady());
 
@@ -59,7 +59,7 @@ int main(int argc, char** argv)
     {   
         system("cls");
 
-        printf_s("%s\n", LOGO);
+        std::cout << LOGO << std::endl;
 
         dumper.LoadValue(localization, { "values", "localization" });
         dumper.LoadValue(level, { "values", "level" });
