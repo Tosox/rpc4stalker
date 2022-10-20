@@ -13,7 +13,6 @@ int main(int argc, char** argv)
 
     std::string localization;
     std::string level;
-    std::string time;
     std::string faction_raw;
     std::string faction;
     std::string task;
@@ -61,6 +60,8 @@ int main(int argc, char** argv)
 
         std::cout << LOGO << std::endl;
 
+        dumper.DumpValues();
+
         dumper.LoadValue(localization, { "values", "localization" });
         dumper.LoadValue(level, { "values", "level" });
         dumper.LoadValue(faction_raw, { "values", "faction_raw" });
@@ -80,19 +81,17 @@ int main(int argc, char** argv)
             faction.c_str()
         );
 
-        static char szLevel[256]{};
-        sprintf_s(
-            szLevel,
-            utils::FindStrStrMap(LANGUAGE_TABLE, localization, "Exploring: %s").c_str(),
-            level.c_str()
-        );
+        std::string exploring = utils::FindStrStrMap(LANGUAGE_TABLE, localization, "Exploring: ");
+        std::string exploringLevel = exploring + level;
 
-        discord.SetDetails(szLevel);
+        discord.SetDetails(exploringLevel.c_str());
         discord.SetState(task.c_str());
         discord.Update();
 
         std::this_thread::sleep_for(std::chrono::milliseconds(5000));
     }
     
+    dumper.Shutdown();
+
     return EXIT_SUCCESS;
 }

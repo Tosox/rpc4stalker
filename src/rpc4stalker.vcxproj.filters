@@ -55,6 +55,9 @@
     <ClCompile Include="utils.cpp">
       <Filter>src</Filter>
     </ClCompile>
+    <ClCompile Include="CodePageConverter.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="lib">
@@ -144,6 +147,9 @@
       <Filter>src</Filter>
     </ClInclude>
     <ClInclude Include="utils.hpp">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="CodePageConverter.hpp">
       <Filter>src</Filter>
     </ClInclude>
   </ItemGroup>

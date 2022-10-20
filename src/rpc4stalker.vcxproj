@@ -73,15 +73,15 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
-    <LibraryPath>..\lib\discord_sdk\lib\x86;$(LibraryPath)</LibraryPath>
-    <IncludePath>..\lib\discord_sdk\include;$(IncludePath)</IncludePath>
+    <LibraryPath>..\lib\iconv\lib\x86;..\lib\discord_sdk\lib\x86;$(LibraryPath)</LibraryPath>
+    <IncludePath>..\lib\json;..\lib\iconv\include;..\lib\discord_sdk\include;$(IncludePath)</IncludePath>
     <OutDir>$(SolutionDir)\_build\$(Configuration)\</OutDir>
     <IntDir>$(SolutionDir)\_build\$(Configuration)\dbg\</IntDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
-    <IncludePath>../lib/discord_sdk/include;$(IncludePath)</IncludePath>
-    <LibraryPath>../lib/discord_sdk/lib/x86;$(LibraryPath)</LibraryPath>
+    <IncludePath>..\lib\json;..\lib\iconv\include;..\lib\discord_sdk\include;$(IncludePath)</IncludePath>
+    <LibraryPath>..\lib\iconv\lib\x86;..\lib\discord_sdk\lib\x86;$(LibraryPath)</LibraryPath>
     <OutDir>$(SolutionDir)\_build\$(Configuration)\</OutDir>
     <IntDir>$(SolutionDir)\_build\$(Configuration)\dbg\</IntDir>
   </PropertyGroup>
@@ -187,6 +187,7 @@
     <ClCompile Include="..\lib\discord_sdk\include\types.cpp" />
     <ClCompile Include="..\lib\discord_sdk\include\user_manager.cpp" />
     <ClCompile Include="..\lib\discord_sdk\include\voice_manager.cpp" />
+    <ClCompile Include="CodePageConverter.cpp" />
     <ClCompile Include="DiscordManager.cpp" />
     <ClCompile Include="Dumper.cpp" />
     <ClCompile Include="main.cpp" />
@@ -211,6 +212,7 @@
     <ClInclude Include="..\lib\discord_sdk\include\user_manager.h" />
     <ClInclude Include="..\lib\discord_sdk\include\voice_manager.h" />
     <ClInclude Include="..\lib\json\json.hpp" />
+    <ClInclude Include="CodePageConverter.hpp" />
     <ClInclude Include="DiscordManager.hpp" />
     <ClInclude Include="Dumper.hpp" />
     <ClInclude Include="globals.hpp" />

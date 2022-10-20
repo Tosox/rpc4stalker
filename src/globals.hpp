@@ -23,8 +23,8 @@ const std::map<std::string, std::string> COMMUNITY_TABLE = {
 };
 
 const std::map<std::string, std::string> LANGUAGE_TABLE = {
-	{"eng", "Exploring: %s"},
-	{"rus", u8"Изучает: %s"}
+	{"eng", "Exploring: "},
+	{"rus", u8"Изучает: "}
 };
 
 static const char LOGO[1283] =
