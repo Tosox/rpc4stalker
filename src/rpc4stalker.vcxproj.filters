@@ -81,6 +81,18 @@
     <Filter Include="lib\discord_sdk\lib\x86">
       <UniqueIdentifier>{c8ab5cd3-54e7-4067-8df8-6fdbeb67b9e3}</UniqueIdentifier>
     </Filter>
+    <Filter Include="lib\iconv">
+      <UniqueIdentifier>{eb1453f8-9e1c-469f-8b10-2fcefc3cc8fe}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="lib\iconv\lib">
+      <UniqueIdentifier>{3787220e-ab24-4006-a850-9d48a3d59d08}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="lib\iconv\lib\x86">
+      <UniqueIdentifier>{a029df4f-93b6-4227-9f86-603afa366952}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="lib\iconv\include">
+      <UniqueIdentifier>{4560f64d-74b1-46c7-9b93-f3beaba4e38a}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\lib\json\json.hpp">
@@ -152,10 +164,16 @@
     <ClInclude Include="CodePageConverter.hpp">
       <Filter>src</Filter>
     </ClInclude>
+    <ClInclude Include="..\lib\iconv\include\iconv.h">
+      <Filter>lib\iconv\include</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Library Include="..\lib\discord_sdk\lib\x86\discord_game_sdk.dll.lib">
       <Filter>lib\discord_sdk\lib\x86</Filter>
+    </Library>
+    <Library Include="..\lib\iconv\lib\x86\libiconvStatic.lib">
+      <Filter>lib\iconv\lib\x86</Filter>
     </Library>
   </ItemGroup>
 </Project>

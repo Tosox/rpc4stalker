@@ -211,6 +211,7 @@
     <ClInclude Include="..\lib\discord_sdk\include\types.h" />
     <ClInclude Include="..\lib\discord_sdk\include\user_manager.h" />
     <ClInclude Include="..\lib\discord_sdk\include\voice_manager.h" />
+    <ClInclude Include="..\lib\iconv\include\iconv.h" />
     <ClInclude Include="..\lib\json\json.hpp" />
     <ClInclude Include="CodePageConverter.hpp" />
     <ClInclude Include="DiscordManager.hpp" />
@@ -220,6 +221,9 @@
   </ItemGroup>
   <ItemGroup>
     <Library Include="..\lib\discord_sdk\lib\x86\discord_game_sdk.dll.lib">
+      <DeploymentContent>true</DeploymentContent>
+    </Library>
+    <Library Include="..\lib\iconv\lib\x86\libiconvStatic.lib">
       <DeploymentContent>true</DeploymentContent>
     </Library>
   </ItemGroup>
