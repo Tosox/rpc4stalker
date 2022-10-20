@@ -213,6 +213,7 @@
     <ClInclude Include="..\lib\discord_sdk\include\voice_manager.h" />
     <ClInclude Include="..\lib\iconv\include\iconv.h" />
     <ClInclude Include="..\lib\json\json.hpp" />
+    <ClInclude Include="..\res\resource.h" />
     <ClInclude Include="CodePageConverter.hpp" />
     <ClInclude Include="DiscordManager.hpp" />
     <ClInclude Include="Dumper.hpp" />
@@ -226,6 +227,17 @@
     <Library Include="..\lib\iconv\lib\x86\libiconvStatic.lib">
       <DeploymentContent Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</DeploymentContent>
     </Library>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="..\res\Resource.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="..\res\icon.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\res\Resource.aps">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
