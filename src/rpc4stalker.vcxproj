@@ -224,7 +224,7 @@
       <DeploymentContent>true</DeploymentContent>
     </Library>
     <Library Include="..\lib\iconv\lib\x86\libiconvStatic.lib">
-      <DeploymentContent>true</DeploymentContent>
+      <DeploymentContent Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</DeploymentContent>
     </Library>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
