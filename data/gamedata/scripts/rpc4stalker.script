@@ -27,7 +27,7 @@ function actor_on_update()
 		return true
 	end
 
-	CreateTimeEvent("manage_dump_timer", "manage_dump_timer", 30.0, manage_dump_time)
+	CreateTimeEvent("manage_dump_timer", "manage_dump_timer", 5.0, manage_dump_time)
 end
 
 function on_game_start()

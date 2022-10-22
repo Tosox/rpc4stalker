@@ -1,6 +1,6 @@
 #pragma once
 
-#pragma comment(lib, "libiconvStatic.lib")
+#pragma comment(lib, "libiconv.lib")
 
 #include "utils.hpp"
 

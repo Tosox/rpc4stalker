@@ -224,7 +224,7 @@
     <Library Include="..\lib\discord_sdk\lib\x86\discord_game_sdk.dll.lib">
       <DeploymentContent>true</DeploymentContent>
     </Library>
-    <Library Include="..\lib\iconv\lib\x86\libiconvStatic.lib">
+    <Library Include="..\lib\iconv\lib\x86\libiconv.lib">
       <DeploymentContent Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</DeploymentContent>
     </Library>
   </ItemGroup>
