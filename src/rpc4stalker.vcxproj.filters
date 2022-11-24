@@ -183,18 +183,13 @@
     </Library>
   </ItemGroup>
   <ItemGroup>
-    <ResourceCompile Include="..\res\Resource.rc">
-      <Filter>res</Filter>
-    </ResourceCompile>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="..\res\Resource.aps">
-      <Filter>res</Filter>
-    </None>
-  </ItemGroup>
-  <ItemGroup>
     <Image Include="..\res\icon.ico">
       <Filter>res</Filter>
     </Image>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="..\res\icon.rc">
+      <Filter>res</Filter>
+    </ResourceCompile>
   </ItemGroup>
 </Project>

@@ -229,15 +229,10 @@
     </Library>
   </ItemGroup>
   <ItemGroup>
-    <ResourceCompile Include="..\res\Resource.rc" />
-  </ItemGroup>
-  <ItemGroup>
     <Image Include="..\res\icon.ico" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="..\res\Resource.aps">
-      <DeploymentContent>true</DeploymentContent>
-    </None>
+    <ResourceCompile Include="..\res\icon.rc" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
