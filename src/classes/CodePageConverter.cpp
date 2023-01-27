@@ -1,6 +1,8 @@
 #include "CodePageConverter.hpp"
-#include "../utils/utils.hpp"
+
 #include <cstdio>
+
+#include "../utils/utils.hpp"
 
 CodePageConverter::CodePageConverter(const char* from, const char* to)
 {

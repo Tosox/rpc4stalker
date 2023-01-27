@@ -1,7 +1,5 @@
 #include "DiscordManager.hpp"
 
-#pragma comment(lib, "discord_game_sdk.dll.lib")
-
 DiscordManager::DiscordManager()
 {
     m_Result = discord::Result::NotRunning;

@@ -5,8 +5,8 @@
 #include <sstream>
 #include <iconv.h>
 
-#include "../settings/globals.hpp"
 #include "../utils/utils.hpp"
+#include "../settings/globals.hpp"
 
 std::string Dumper::getLocationString(std::vector<std::string>& location)
 {

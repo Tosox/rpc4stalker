@@ -1,9 +1,14 @@
 #pragma once
 
+#ifdef _DEBUG
+#pragma comment(lib, "libiconv_d.lib")
+#else
 #pragma comment(lib, "libiconv.lib")
+#endif // _DEBUG
+
+#include <iostream>
 
 #include <iconv.h>
-#include <iostream>
 
 class CodePageConverter
 {

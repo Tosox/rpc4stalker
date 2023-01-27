@@ -4,7 +4,7 @@
 #include <string>
 #include <vector>
 
-#include "../../lib/json/json.hpp"
+#include <json.hpp>
 
 #include "CodePageConverter.hpp"
 

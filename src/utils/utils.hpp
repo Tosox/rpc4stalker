@@ -1,8 +1,9 @@
 #pragma once
 
-#include "colorstream.hpp"
 #include <map>
 #include <string>
+
+#include "colorstream.hpp"
 
 namespace utils
 {

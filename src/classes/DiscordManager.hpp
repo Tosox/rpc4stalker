@@ -1,5 +1,7 @@
 #pragma once
 
+#pragma comment(lib, "discord_game_sdk.dll.lib")
+
 #include <Windows.h>
 #include <chrono>
 
