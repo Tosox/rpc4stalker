@@ -5,11 +5,10 @@
 #include <sstream>
 #include <iconv.h>
 
-#include "globals.hpp"
-#include "utils.hpp"
-#include "CodePageConverter.hpp"
+#include "../settings/globals.hpp"
+#include "../utils/utils.hpp"
 
-std::string Dumper::GetLocationString(std::vector<std::string>& location)
+std::string Dumper::getLocationString(std::vector<std::string>& location)
 {
 	std::stringstream stream{};
 
@@ -19,7 +18,7 @@ std::string Dumper::GetLocationString(std::vector<std::string>& location)
 	return stream.str();
 }
 
-void Dumper::SetDumpPath(const std::string& path)
+void Dumper::setDumpPath(const std::string& path)
 {
 	std::ifstream inputFile{ path };
 	if (!inputFile.good())
@@ -28,12 +27,12 @@ void Dumper::SetDumpPath(const std::string& path)
 	dumpPath = path;
 }
 
-bool Dumper::IsDumpReady()
+bool Dumper::isDumpReady()
 {
-	return std::filesystem::exists(dumpPath.c_str());
+	return std::filesystem::exists(dumpPath);
 }
 
-void Dumper::DumpValues()
+void Dumper::dumpValues()
 {
 	std::ifstream inputFile{ dumpPath };
 	if (!inputFile.good())
@@ -48,7 +47,7 @@ void Dumper::DumpValues()
 	catch (nlohmann::detail::parse_error&) { utils::ThrowErrorAndExit("Found 'rpc4stalker.json', but something seems to be wrong with the file format."); }
 }
 
-void Dumper::LoadValue(std::string& value, std::vector<std::string> location)
+void Dumper::loadValue(std::string& value, std::vector<std::string> location)
 {
 	try
 	{
@@ -62,34 +61,32 @@ void Dumper::LoadValue(std::string& value, std::vector<std::string> location)
 	}
 	catch (nlohmann::detail::type_error&)
 	{
-		utils::ThrowError("Value at '" + GetLocationString(location) + "' is invalid.");
+		utils::ThrowError("Value at '" + getLocationString(location) + "' is invalid.");
 		value = "";
 	}
 }
 
-void Dumper::PrintDump(std::vector<sspair> pairs)
+void Dumper::printDump(std::vector<sspair> pairs)
 {
 	std::stringstream stream{};
 
 	for (sspair& pair : pairs)
 	{
 		pair.first.resize(20, ' ');
-		if (!pair.second.empty())
-		{
-			// TODO: Fix this hardcoded garbage and blame cpp
-			// Color green
-			stream << "\033[32m" << "[.] " << "\033[00m"
-				<< pair.first.c_str()
-				<< " : "
-				<< pair.second.c_str()
-				<< "\n";
-		}
+
+		// TODO: Fix this hardcoded garbage and blame cpp
+		// Color green
+		stream << "\033[32m" << "[.] " << "\033[00m"
+			<< pair.first
+			<< " : "
+			<< pair.second
+			<< "\n";
 	}
 
-	std::cout << stream.str().c_str() << std::endl;
+	std::cout << stream.str();
 }
 
-void Dumper::Shutdown()
+void Dumper::shutdown()
 {
 	converter.close();
 }

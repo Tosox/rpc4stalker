@@ -1,11 +1,11 @@
 #include "CodePageConverter.hpp"
-
+#include "../utils/utils.hpp"
 #include <cstdio>
 
-CodePageConverter::CodePageConverter(const char* to, const char* from)
+CodePageConverter::CodePageConverter(const char* from, const char* to)
 {
 	_cv = iconv_open(to, from);
-	if (_cv == reinterpret_cast<iconv_t>(-1))
+	if (_cv == (iconv_t)(-1))
 		utils::ThrowErrorAndExit("Unable to initialize CodePageConverter.");
 }
 
@@ -29,6 +29,6 @@ std::string CodePageConverter::convert(std::string str)
 
 void CodePageConverter::close()
 {
-	if (_cv != reinterpret_cast<iconv_t>(-1))
+	if (_cv != (iconv_t)(-1))
 		iconv_close(_cv);
 }

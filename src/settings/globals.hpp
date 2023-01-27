@@ -5,8 +5,6 @@
 
 static constexpr long long DISCORD_APPLICATION_ID = 890702387025702922;
 
-static std::string APPLICATION_NAME = "rpc4stalker";
-
 const std::map<std::string, std::string> COMMUNITY_TABLE = {
 	{"actor_stalker", "stalker_patch_stalker"},
 	{"actor_bandit", "stalker_patch_bandit"},

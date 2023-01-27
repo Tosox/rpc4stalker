@@ -187,11 +187,11 @@
     <ClCompile Include="..\lib\discord_sdk\include\types.cpp" />
     <ClCompile Include="..\lib\discord_sdk\include\user_manager.cpp" />
     <ClCompile Include="..\lib\discord_sdk\include\voice_manager.cpp" />
-    <ClCompile Include="CodePageConverter.cpp" />
-    <ClCompile Include="DiscordManager.cpp" />
-    <ClCompile Include="Dumper.cpp" />
+    <ClCompile Include="classes\CodePageConverter.cpp" />
+    <ClCompile Include="classes\DiscordManager.cpp" />
+    <ClCompile Include="classes\Dumper.cpp" />
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="utils.cpp" />
+    <ClCompile Include="utils\utils.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\lib\discord_sdk\include\achievement_manager.h" />
@@ -214,11 +214,12 @@
     <ClInclude Include="..\lib\iconv\include\iconv.h" />
     <ClInclude Include="..\lib\json\json.hpp" />
     <ClInclude Include="..\res\resource.h" />
-    <ClInclude Include="CodePageConverter.hpp" />
-    <ClInclude Include="DiscordManager.hpp" />
-    <ClInclude Include="Dumper.hpp" />
-    <ClInclude Include="globals.hpp" />
-    <ClInclude Include="utils.hpp" />
+    <ClInclude Include="classes\CodePageConverter.hpp" />
+    <ClInclude Include="classes\DiscordManager.hpp" />
+    <ClInclude Include="classes\Dumper.hpp" />
+    <ClInclude Include="settings\globals.hpp" />
+    <ClInclude Include="utils\colorstream.hpp" />
+    <ClInclude Include="utils\utils.hpp" />
   </ItemGroup>
   <ItemGroup>
     <Library Include="..\lib\discord_sdk\lib\x86\discord_game_sdk.dll.lib">

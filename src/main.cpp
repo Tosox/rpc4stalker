@@ -1,15 +1,17 @@
 ﻿#include <thread>
 
-#include "DiscordManager.hpp"
-#include "Dumper.hpp"
-#include "utils.hpp"
-#include "globals.hpp"
+#include "classes/DiscordManager.hpp"
+#include "classes/Dumper.hpp"
+#include "utils/utils.hpp"
+#include "settings/globals.hpp"
+
+#define wait(x) std::this_thread::sleep_for(std::chrono::milliseconds(x))
 
 int main(int argc, char** argv)
 {
     // Init objects
-    DiscordManager discord;
-    Dumper dumper;
+    DiscordManager discordManager{};
+    Dumper dumper{};
 
     std::string localization;
     std::string level;
@@ -18,57 +20,54 @@ int main(int argc, char** argv)
     std::string task;
 
     SetConsoleOutputCP(CP_UTF8);
-    SetConsoleTitleA(APPLICATION_NAME.c_str());
+    SetConsoleTitleA("rpc4stalker");
     std::cout << LOGO << std::endl;
 
     //---------------------------------------------------------------------------------------
 
     {
-        // Find discord
+        // Find discordManager
         do
         {
-            std::cout << _F_BLUE << "[*] " << _F_WHITE << "Searching for discord..." << std::endl;
-            discord.Create(DISCORD_APPLICATION_ID);
-            std::this_thread::sleep_for(std::chrono::milliseconds(700));
-        } while (!discord.IsReady());
+            std::cout << _F_BLUE("[*] ") << "Searching for Discord..." << std::endl;
+            discordManager.create(DISCORD_APPLICATION_ID);
+            wait(700);
+        } while (!discordManager.isReady());
 
         // Print dump file path
-        std::cout << _F_BLUE << "[*] " << _F_WHITE << "Getting dump file path..." << std::endl;
-        const std::filesystem::path path = std::filesystem::temp_directory_path().string() + APPLICATION_NAME + ".json";
-        dumper.SetDumpPath(path.string());
-        std::this_thread::sleep_for(std::chrono::milliseconds(700));
+        std::cout << _F_BLUE("[*] ") << "Getting dump file path..." << std::endl;
+        const std::filesystem::path path = std::filesystem::temp_directory_path().string() + "rpc4stalker.json";
+        dumper.setDumpPath(path.string());
 
         // Find dumps
         do
         {
-            std::cout << _F_BLUE << "[*] " << _F_WHITE << "Searching for dumps..." << std::endl;
-            std::this_thread::sleep_for(std::chrono::milliseconds(700));
-        } while (!dumper.IsDumpReady());
+            std::cout << _F_BLUE("[*] ") << "Searching for dumps..." << std::endl;
+            wait(700);
+        } while (!dumper.isDumpReady());
 
-        discord.AddTimestamp();
-        discord.SetType(discord::ActivityType::Playing);
-        discord.SetLargeImage("stalker_icon_0", "S.T.A.L.K.E.R.");
-
-        std::this_thread::sleep_for(std::chrono::milliseconds(2000));
+        discordManager.addTimestamp();
+        discordManager.setType(discord::ActivityType::Playing);
+        discordManager.setLargeImage("stalker_icon_0", "S.T.A.L.K.E.R.");
     }
 
     //---------------------------------------------------------------------------------------
 
-    while (discord.IsReady())
+    while (discordManager.isReady())
     {   
         system("cls");
 
         std::cout << LOGO << std::endl;
 
-        dumper.DumpValues();
+        dumper.dumpValues();
 
-        dumper.LoadValue(localization, { "values", "localization" });
-        dumper.LoadValue(level, { "values", "level" });
-        dumper.LoadValue(faction_raw, { "values", "faction_raw" });
-        dumper.LoadValue(faction, { "values", "faction" });
-        dumper.LoadValue(task, { "values", "task" });
+        dumper.loadValue(localization, { "values", "localization" });
+        dumper.loadValue(level, { "values", "level" });
+        dumper.loadValue(faction_raw, { "values", "faction_raw" });
+        dumper.loadValue(faction, { "values", "faction" });
+        dumper.loadValue(task, { "values", "task" });
 
-        dumper.PrintDump({
+        dumper.printDump({
             std::make_pair("Localization", localization),
             std::make_pair("Level", level),
             std::make_pair("Faction (raw)", faction_raw),
@@ -76,22 +75,21 @@ int main(int argc, char** argv)
             std::make_pair("Task", task)
         });
         
-        discord.SetSmallImage(
+        discordManager.setSmallImage(
             utils::FindStrStrMap(COMMUNITY_TABLE, faction_raw, "stalker_patch_stalker").c_str(),
             faction.c_str()
         );
 
-        std::string exploring = utils::FindStrStrMap(LANGUAGE_TABLE, localization, "Exploring: ");
-        std::string exploringLevel = exploring + level;
+        std::string exploringLevel = utils::FindStrStrMap(LANGUAGE_TABLE, localization, "Exploring: ") + level;
 
-        discord.SetDetails(exploringLevel.c_str());
-        discord.SetState(task.c_str());
-        discord.Update();
+        discordManager.setDetails(exploringLevel.c_str());
+        discordManager.setState(task.c_str());
+        discordManager.update();
 
-        std::this_thread::sleep_for(std::chrono::milliseconds(5000));
+        wait(2000);
     }
     
-    dumper.Shutdown();
+    dumper.shutdown();
 
     return EXIT_SUCCESS;
 }
