@@ -1,9 +1,9 @@
 # rpc4stalker
-[![C++](https://img.shields.io/badge/Language-C%2B%2B-%23f34b7d.svg?style=flat)](https://en.wikipedia.org/wiki/C%2B%2B) 
-[![S.T.A.L.K.E.R.](https://img.shields.io/badge/Game-S.T.A.L.K.E.R.-yellow.svg?style=flat)](https://store.steampowered.com/app/41700/STALKER_Call_of_Pripyat) 
-[![Windows](https://img.shields.io/badge/Platform-Windows-0078d7.svg?style=flat)](https://en.wikipedia.org/wiki/Microsoft_Windows) 
-[![x86](https://img.shields.io/badge/Arch-x86-green.svg?style=flat)](https://en.wikipedia.org/wiki/X86)
-[![Mod DB](https://img.shields.io/badge/ModDB-Download-red.svg?style=flat)](https://www.moddb.com/mods/call-of-chernobyl/addons/rpc4stalker)
+[![](https://img.shields.io/badge/Language-C%2B%2B-%23f34b7d.svg?style=flat)](https://en.wikipedia.org/wiki/C%2B%2B) 
+[![](https://img.shields.io/badge/Game-S.T.A.L.K.E.R.-yellow.svg?style=flat)](https://store.steampowered.com/app/41700/STALKER_Call_of_Pripyat) 
+[![](https://img.shields.io/github/languages/code-size/TosoxDev/rpc4stalker?color=blue&label=Code%20size&style=flat)](https://github.com/TosoxDev/rpc4stalker)
+[![](https://img.shields.io/tokei/lines/github/TosoxDev/rpc4stalker?color=red&label=Total%20lines&style=flat)](https://github.com/TosoxDev/rpc4stalker)
+[![](https://img.shields.io/github/downloads/TosoxDev/rpc4stalker/total?color=green&label=Downloads&style=flat)](https://github.com/TosoxDev/rpc4stalker/releases)
 
 > Note: *This mod is only compatible with games based on [Call of Chernobyl](https://www.moddb.com/mods/call-of-chernobyl)*
 
@@ -30,7 +30,6 @@
 
 ## Compilation
 - `C++ 17` is required for compilation
-- Make sure that you use `Release | x86` as build configuration
 
 ## Preview
 <img src="readme-res/preview.png" width="650" height="340" /> <img src="readme-res/discord.png" width="225" height="340" />
@@ -48,7 +47,14 @@ The Latin and Cyrillic script were successfully tested.
 ### Can the mod conflict with other mods?
 No, because no files need to be overwritten during the installation.
 
+## Mod DB Insights
+
+<iframe width="600" height="180" src="https://www.moddb.com/addons/rpc4stalker/widget" frameborder="0"></iframe><br><a href="https://www.moddb.com/addons/rpc4stalker"></a>
+
+<iframe width="600" height="400" src="https://www.moddb.com/statistics/iframe/visit/downloads/228278" frameborder="0" allowfullscreen></iframe><br /><a href="https://www.moddb.com/downloads/rpc4stalker"></a>
+
 ## Credits
 - [Discord](https://github.com/discord) for their [GameSDK](https://discord.com/developers/docs/game-sdk/sdk-starter-guide)
+- [GNU](https://www.gnu.org) for their conversion library [libiconv](https://www.gnu.org/software/libiconv)
 - [nlohmann](https://github.com/nlohmann) for a modern C++ [implementation of JSON](https://github.com/nlohmann/json)
 
