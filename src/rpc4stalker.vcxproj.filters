@@ -4,6 +4,18 @@
     <ClCompile Include="main.cpp">
       <Filter>src</Filter>
     </ClCompile>
+    <ClCompile Include="classes\CodePageConverter.cpp">
+      <Filter>src\classes</Filter>
+    </ClCompile>
+    <ClCompile Include="classes\DiscordManager.cpp">
+      <Filter>src\classes</Filter>
+    </ClCompile>
+    <ClCompile Include="classes\Dumper.cpp">
+      <Filter>src\classes</Filter>
+    </ClCompile>
+    <ClCompile Include="utils\utils.cpp">
+      <Filter>src\utils</Filter>
+    </ClCompile>
     <ClCompile Include="..\lib\discord_sdk\include\achievement_manager.cpp">
       <Filter>lib\discord_sdk\include</Filter>
     </ClCompile>
@@ -45,18 +57,6 @@
     </ClCompile>
     <ClCompile Include="..\lib\discord_sdk\include\voice_manager.cpp">
       <Filter>lib\discord_sdk\include</Filter>
-    </ClCompile>
-    <ClCompile Include="classes\CodePageConverter.cpp">
-      <Filter>src\classes</Filter>
-    </ClCompile>
-    <ClCompile Include="classes\DiscordManager.cpp">
-      <Filter>src\classes</Filter>
-    </ClCompile>
-    <ClCompile Include="classes\Dumper.cpp">
-      <Filter>src\classes</Filter>
-    </ClCompile>
-    <ClCompile Include="utils\utils.cpp">
-      <Filter>src\utils</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -105,10 +105,64 @@
     <Filter Include="src\utils">
       <UniqueIdentifier>{b801c63c-187a-4a4f-b7ab-d4e625b9b23a}</UniqueIdentifier>
     </Filter>
+    <Filter Include="lib\iconv\lib\x64">
+      <UniqueIdentifier>{40f99bad-c312-4593-bcbb-659bf8cdc13b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="lib\discord_sdk\lib\x64">
+      <UniqueIdentifier>{8ab1cf70-5789-4512-8780-9a28eee2437f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="readme-res">
+      <UniqueIdentifier>{b7a46674-704a-4f59-a8d0-94bc7b01c3e9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="data">
+      <UniqueIdentifier>{01db64b0-6dc2-475d-89d6-13722bfcc5a5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="data\redist">
+      <UniqueIdentifier>{a8de6bb2-45e0-43c1-84ab-4ef5b2a23e1b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="data\discord_sdk">
+      <UniqueIdentifier>{a9cfd751-bd04-4cf1-a781-e665335b9bbb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="data\gamedata">
+      <UniqueIdentifier>{7ffb1467-6870-45d4-a9fe-54cb0d581a03}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="data\gamedata\scripts">
+      <UniqueIdentifier>{02e54756-e538-47e3-81a6-fab6dfb7b180}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="data\discord_sdk\x86">
+      <UniqueIdentifier>{5be5fac6-c25e-4781-bc93-3da87789cf32}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="data\discord_sdk\x64">
+      <UniqueIdentifier>{1d0f0f8e-4ee5-43d5-81af-25d003fb51c5}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\lib\json\json.hpp">
       <Filter>lib\json</Filter>
+    </ClInclude>
+    <ClInclude Include="..\lib\iconv\include\iconv.h">
+      <Filter>lib\iconv\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\res\resource.h">
+      <Filter>res</Filter>
+    </ClInclude>
+    <ClInclude Include="classes\CodePageConverter.hpp">
+      <Filter>src\classes</Filter>
+    </ClInclude>
+    <ClInclude Include="classes\DiscordManager.hpp">
+      <Filter>src\classes</Filter>
+    </ClInclude>
+    <ClInclude Include="classes\Dumper.hpp">
+      <Filter>src\classes</Filter>
+    </ClInclude>
+    <ClInclude Include="utils\utils.hpp">
+      <Filter>src\utils</Filter>
+    </ClInclude>
+    <ClInclude Include="settings\globals.hpp">
+      <Filter>src\settings</Filter>
+    </ClInclude>
+    <ClInclude Include="utils\colorstream.hpp">
+      <Filter>src\utils</Filter>
     </ClInclude>
     <ClInclude Include="..\lib\discord_sdk\include\achievement_manager.h">
       <Filter>lib\discord_sdk\include</Filter>
@@ -161,47 +215,67 @@
     <ClInclude Include="..\lib\discord_sdk\include\voice_manager.h">
       <Filter>lib\discord_sdk\include</Filter>
     </ClInclude>
-    <ClInclude Include="..\lib\iconv\include\iconv.h">
-      <Filter>lib\iconv\include</Filter>
-    </ClInclude>
-    <ClInclude Include="..\res\resource.h">
-      <Filter>res</Filter>
-    </ClInclude>
-    <ClInclude Include="classes\CodePageConverter.hpp">
-      <Filter>src\classes</Filter>
-    </ClInclude>
-    <ClInclude Include="classes\DiscordManager.hpp">
-      <Filter>src\classes</Filter>
-    </ClInclude>
-    <ClInclude Include="classes\Dumper.hpp">
-      <Filter>src\classes</Filter>
-    </ClInclude>
-    <ClInclude Include="utils\utils.hpp">
-      <Filter>src\utils</Filter>
-    </ClInclude>
-    <ClInclude Include="settings\globals.hpp">
-      <Filter>src\settings</Filter>
-    </ClInclude>
-    <ClInclude Include="utils\colorstream.hpp">
-      <Filter>src\utils</Filter>
-    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Library Include="..\lib\discord_sdk\lib\x86\discord_game_sdk.dll.lib">
       <Filter>lib\discord_sdk\lib\x86</Filter>
     </Library>
+    <Library Include="..\lib\iconv\lib\x64\libiconv.lib">
+      <Filter>lib\iconv\lib\x64</Filter>
+    </Library>
+    <Library Include="..\lib\iconv\lib\x64\libiconv_d.lib">
+      <Filter>lib\iconv\lib\x64</Filter>
+    </Library>
     <Library Include="..\lib\iconv\lib\x86\libiconv.lib">
       <Filter>lib\iconv\lib\x86</Filter>
+    </Library>
+    <Library Include="..\lib\iconv\lib\x86\libiconv_d.lib">
+      <Filter>lib\iconv\lib\x86</Filter>
+    </Library>
+    <Library Include="..\lib\discord_sdk\lib\x64\discord_game_sdk.dll.lib">
+      <Filter>lib\discord_sdk\lib\x64</Filter>
     </Library>
   </ItemGroup>
   <ItemGroup>
     <Image Include="..\res\icon.ico">
       <Filter>res</Filter>
     </Image>
+    <Image Include="..\readme-res\discord.png">
+      <Filter>readme-res</Filter>
+    </Image>
+    <Image Include="..\readme-res\preview.png">
+      <Filter>readme-res</Filter>
+    </Image>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="..\res\icon.rc">
       <Filter>res</Filter>
     </ResourceCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\.gitattributes" />
+    <None Include="..\.gitignore" />
+    <None Include="..\LICENSE" />
+    <None Include="..\README.md" />
+    <None Include="..\data\redist\VC_redist.x64.exe">
+      <Filter>data\redist</Filter>
+    </None>
+    <None Include="..\data\redist\VC_redist.x86.exe">
+      <Filter>data\redist</Filter>
+    </None>
+    <None Include="..\data\gamedata\scripts\rpc4stalker.script">
+      <Filter>data\gamedata\scripts</Filter>
+    </None>
+    <None Include="..\data\discord_sdk\x64\discord_game_sdk.dll">
+      <Filter>data\discord_sdk\x64</Filter>
+    </None>
+    <None Include="..\data\discord_sdk\x86\discord_game_sdk.dll">
+      <Filter>data\discord_sdk\x86</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="..\readme-res\compatibility.txt">
+      <Filter>readme-res</Filter>
+    </Text>
   </ItemGroup>
 </Project>
