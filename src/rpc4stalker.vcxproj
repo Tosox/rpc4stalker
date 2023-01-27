@@ -74,13 +74,13 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
     <LibraryPath>..\lib\iconv\lib\x86;..\lib\discord_sdk\lib\x86;$(LibraryPath)</LibraryPath>
-    <IncludePath>..\lib\discord_sdk\include;..\lib\iconv\include;..\lib\json</IncludePath>
+    <IncludePath>..\lib\discord_sdk\include;..\lib\iconv\include;..\lib\json;$(VC_IncludePath);$(WindowsSDK_IncludePath);</IncludePath>
     <OutDir>$(SolutionDir)\_build\$(Configuration)\$(PlatformTarget)\</OutDir>
     <IntDir>$(SolutionDir)\_build\$(Configuration)\$(PlatformTarget)\dbg\</IntDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
-    <IncludePath>..\lib\discord_sdk\include;..\lib\iconv\include;..\lib\json</IncludePath>
+    <IncludePath>..\lib\discord_sdk\include;..\lib\iconv\include;..\lib\json;$(VC_IncludePath);$(WindowsSDK_IncludePath);</IncludePath>
     <LibraryPath>..\lib\iconv\lib\x86;..\lib\discord_sdk\lib\x86;$(LibraryPath)</LibraryPath>
     <OutDir>$(SolutionDir)\_build\$(Configuration)\$(PlatformTarget)\</OutDir>
     <IntDir>$(SolutionDir)\_build\$(Configuration)\$(PlatformTarget)\dbg\</IntDir>
@@ -90,11 +90,11 @@
     <OutDir>$(SolutionDir)\_build\$(Configuration)\$(PlatformTarget)\</OutDir>
     <IntDir>$(SolutionDir)\_build\$(Configuration)\$(PlatformTarget)\dbg\</IntDir>
     <LibraryPath>..\lib\iconv\lib\x64;..\lib\discord_sdk\lib\x64;$(LibraryPath)</LibraryPath>
-    <IncludePath>..\lib\discord_sdk\include;..\lib\iconv\include;..\lib\json</IncludePath>
+    <IncludePath>..\lib\discord_sdk\include;..\lib\iconv\include;..\lib\json;$(VC_IncludePath);$(WindowsSDK_IncludePath);</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
-    <IncludePath>..\lib\discord_sdk\include;..\lib\iconv\include;..\lib\json</IncludePath>
+    <IncludePath>..\lib\discord_sdk\include;..\lib\iconv\include;..\lib\json;$(VC_IncludePath);$(WindowsSDK_IncludePath);</IncludePath>
     <LibraryPath>..\lib\iconv\lib\x64;..\lib\discord_sdk\lib\x64;$(LibraryPath)</LibraryPath>
     <OutDir>$(SolutionDir)\_build\$(Configuration)\$(PlatformTarget)\</OutDir>
     <IntDir>$(SolutionDir)\_build\$(Configuration)\$(PlatformTarget)\dbg\</IntDir>
@@ -239,7 +239,7 @@
     <Image Include="..\res\icon.ico" />
   </ItemGroup>
   <ItemGroup>
-    <ResourceCompile Include="..\res\icon.rc" />
+    <ResourceCompile Include="..\res\resource.rc" />
   </ItemGroup>
   <ItemGroup>
     <None Include="..\.gitattributes" />

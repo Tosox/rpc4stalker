@@ -248,7 +248,7 @@
     </Image>
   </ItemGroup>
   <ItemGroup>
-    <ResourceCompile Include="..\res\icon.rc">
+    <ResourceCompile Include="..\res\resource.rc">
       <Filter>res</Filter>
     </ResourceCompile>
   </ItemGroup>
