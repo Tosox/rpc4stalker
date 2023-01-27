@@ -47,12 +47,6 @@ The Latin and Cyrillic script were successfully tested.
 ### Can the mod conflict with other mods?
 No, because no files need to be overwritten during the installation.
 
-## Mod DB Insights
-
-<iframe width="600" height="180" src="https://www.moddb.com/addons/rpc4stalker/widget" frameborder="0"></iframe><br><a href="https://www.moddb.com/addons/rpc4stalker"></a>
-
-<iframe width="600" height="400" src="https://www.moddb.com/statistics/iframe/visit/downloads/228278" frameborder="0" allowfullscreen></iframe><br /><a href="https://www.moddb.com/downloads/rpc4stalker"></a>
-
 ## Credits
 - [Discord](https://github.com/discord) for their [GameSDK](https://discord.com/developers/docs/game-sdk/sdk-starter-guide)
 - [GNU](https://www.gnu.org) for their conversion library [libiconv](https://www.gnu.org/software/libiconv)
