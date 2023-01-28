@@ -22,7 +22,7 @@ void Dumper::setDumpPath(const std::string& path)
 {
 	std::ifstream inputFile{ path };
 	if (!inputFile.good())
-		utils::ThrowErrorAndExit("Cannot find dump file 'rpc4stalker.json'. Make sure this file exists before running this program.");
+		utils::throwErrorAndExit("Cannot find dump file 'rpc4stalker.json'. Make sure this file exists before running this program.");
 
 	dumpPath = path;
 }
@@ -36,7 +36,7 @@ void Dumper::dumpValues()
 {
 	std::ifstream inputFile{ dumpPath };
 	if (!inputFile.good())
-		utils::ThrowErrorAndExit("Cannot find dump file 'rpc4stalker.json'. Make sure this file exists before running this program.");
+		utils::throwErrorAndExit("Cannot find dump file 'rpc4stalker.json'. Make sure this file exists before running this program.");
 
 	std::stringstream fileStream{};
 	fileStream << inputFile.rdbuf();
@@ -44,7 +44,7 @@ void Dumper::dumpValues()
 	std::string convertedFileContents = converter.convert(fileContents);
 
 	try { dump = nlohmann::json::parse(convertedFileContents); }
-	catch (nlohmann::detail::parse_error&) { utils::ThrowErrorAndExit("Found 'rpc4stalker.json', but something seems to be wrong with the file format."); }
+	catch (nlohmann::detail::parse_error&) { utils::throwErrorAndExit("Found 'rpc4stalker.json', but something seems to be wrong with the file format."); }
 }
 
 void Dumper::loadValue(std::string& value, std::vector<std::string> location)
@@ -61,7 +61,7 @@ void Dumper::loadValue(std::string& value, std::vector<std::string> location)
 	}
 	catch (nlohmann::detail::type_error&)
 	{
-		utils::ThrowError("Value at '" + getLocationString(location) + "' is invalid.");
+		utils::throwError("Value at '" + getLocationString(location) + "' is invalid.");
 		value = "";
 	}
 }

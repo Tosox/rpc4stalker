@@ -7,7 +7,8 @@
 
 namespace utils
 {
-	void ThrowError(const std::string& message);
-	void ThrowErrorAndExit(const std::string& message);
-	std::string FindStrStrMap(const std::map<std::string, std::string>& map, const std::string& val, const std::string& fallback);
+	void pause();
+	void throwError(const std::string& message);
+	void throwErrorAndExit(const std::string& message);
+	std::string findStrStrMap(const std::map<std::string, std::string>& map, const std::string& val, const std::string& fallback);
 }
