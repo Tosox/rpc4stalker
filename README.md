@@ -36,13 +36,10 @@
 
 ## FAQ
 ### Which S.T.A.L.K.E.R. games is the program compatible with?
-It is compatible with all games based on the [Call of Chernobyl](https://www.moddb.com/mods/call-of-chernobyl) mod. Unfortunately, this does not include the three original games. A list of tested games can be found [here](readme-res/compatibility.txt).
+It is compatible with all games *based* on the [Call of Chernobyl](https://www.moddb.com/mods/call-of-chernobyl) mod. Unfortunately, this does not include the three original games. A list of tested games can be found [here](readme-res/compatibility.txt).
 
 ### How does the program work?
 The mod that needs to be installed is the most important part of this program. It saves the data to be displayed in the discord status in a file in `%temp%\rpc4stalker.json`. The executable is only responsible for reading and transmitting the data to discord via their [GameSDK](https://discord.com/developers/docs/game-sdk/sdk-starter-guide).
-
-### Which languages are supported?
-The Latin and Cyrillic script were successfully tested.
 
 ### Can the mod conflict with other mods?
 No, because no files need to be overwritten during the installation.

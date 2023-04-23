@@ -71,8 +71,8 @@ IDI_ICON1               ICON                    "icon.ico"
 //
 
 VS_VERSION_INFO VERSIONINFO
- FILEVERSION 2,3,1,0
- PRODUCTVERSION 2,3,1,0
+ FILEVERSION 2,3,2,0
+ PRODUCTVERSION 2,3,2,0
  FILEFLAGSMASK 0x3fL
 #ifdef _DEBUG
  FILEFLAGS 0x1L
@@ -89,12 +89,12 @@ BEGIN
         BEGIN
             VALUE "CompanyName", "TosoxDev"
             VALUE "FileDescription", "rpc4stalker"
-            VALUE "FileVersion", "2.3.1"
+            VALUE "FileVersion", "2.3.2.0"
             VALUE "InternalName", "rpc4stalker"
             VALUE "LegalCopyright", "Copyright © 2023"
             VALUE "OriginalFilename", "rpc4stalker.exe"
             VALUE "ProductName", "rpc4stalker"
-            VALUE "ProductVersion", "2.3.1"
+            VALUE "ProductVersion", "2.3.2.0"
         END
     END
     BLOCK "VarFileInfo"
