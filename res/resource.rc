@@ -88,7 +88,7 @@ BEGIN
         BLOCK "040704b0"
         BEGIN
             VALUE "CompanyName", "TosoxDev"
-            VALUE "FileDescription", "Rich-presence implementation for S.T.A.L.K.E.R."
+            VALUE "FileDescription", "rpc4stalker"
             VALUE "FileVersion", "2.3.1"
             VALUE "InternalName", "rpc4stalker"
             VALUE "LegalCopyright", "Copyright © 2023"

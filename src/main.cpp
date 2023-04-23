@@ -26,7 +26,7 @@ int main(int argc, char** argv)
     //---------------------------------------------------------------------------------------
 
     {
-        // Find discordManager
+        // Find Discord
         do
         {
             std::cout << _F_BLUE("[*] ") << "Searching for Discord..." << std::endl;
