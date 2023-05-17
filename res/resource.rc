@@ -57,22 +57,12 @@ LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
 
 /////////////////////////////////////////////////////////////////////////////
 //
-// Icon
-//
-
-// Icon with lowest ID value placed first to ensure application icon
-// remains consistent on all systems.
-IDI_ICON1               ICON                    "icon.ico"
-
-
-/////////////////////////////////////////////////////////////////////////////
-//
 // Version
 //
 
 VS_VERSION_INFO VERSIONINFO
- FILEVERSION 2,3,2,0
- PRODUCTVERSION 2,3,2,0
+ FILEVERSION 3,0,0,0
+ PRODUCTVERSION 3,0,0,0
  FILEFLAGSMASK 0x3fL
 #ifdef _DEBUG
  FILEFLAGS 0x1L
@@ -88,13 +78,12 @@ BEGIN
         BLOCK "040704b0"
         BEGIN
             VALUE "CompanyName", "TosoxDev"
-            VALUE "FileDescription", "rpc4stalker"
-            VALUE "FileVersion", "2.3.2.0"
+            VALUE "FileVersion", "3.0.0.0"
             VALUE "InternalName", "rpc4stalker"
             VALUE "LegalCopyright", "Copyright © 2023"
             VALUE "OriginalFilename", "rpc4stalker.exe"
             VALUE "ProductName", "rpc4stalker"
-            VALUE "ProductVersion", "2.3.2.0"
+            VALUE "ProductVersion", "3.0.0.0"
         END
     END
     BLOCK "VarFileInfo"

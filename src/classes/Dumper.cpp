@@ -20,10 +20,6 @@ std::string Dumper::getLocationString(std::vector<std::string>& location)
 
 void Dumper::setDumpPath(const std::string& path)
 {
-	std::ifstream inputFile{ path };
-	if (!inputFile.good())
-		utils::throwErrorAndExit("Cannot find dump file 'rpc4stalker.json'. Make sure this file exists before running this program.");
-
 	dumpPath = path;
 }
 
@@ -32,22 +28,33 @@ bool Dumper::isDumpReady()
 	return std::filesystem::exists(dumpPath);
 }
 
-void Dumper::dumpValues()
+bool Dumper::dumpValues()
 {
 	std::ifstream inputFile{ dumpPath };
 	if (!inputFile.good())
-		utils::throwErrorAndExit("Cannot find dump file 'rpc4stalker.json'. Make sure this file exists before running this program.");
+	{
+		utils::Log("Searching for dump file 'rpc4stalker.json'...");
+		return false;
+	}
 
 	std::stringstream fileStream{};
 	fileStream << inputFile.rdbuf();
 	std::string fileContents = fileStream.str();
 	std::string convertedFileContents = converter.convert(fileContents);
 
-	try { dump = nlohmann::json::parse(convertedFileContents); }
-	catch (nlohmann::detail::parse_error&) { utils::throwErrorAndExit("Found 'rpc4stalker.json', but something seems to be wrong with the file format."); }
+	try
+	{
+		dump = nlohmann::json::parse(convertedFileContents);
+		return true;
+	}
+	catch (nlohmann::detail::parse_error&)
+	{
+		utils::ThrowError("Found 'rpc4stalker.json', but something seems to be wrong with the file format. Retrying...");
+		return false;
+	}
 }
 
-void Dumper::loadValue(std::string& value, std::vector<std::string> location)
+std::string Dumper::loadValue(std::vector<std::string> location)
 {
 	try
 	{
@@ -57,12 +64,12 @@ void Dumper::loadValue(std::string& value, std::vector<std::string> location)
 		for (std::string& path : location)
 			obj = obj[path];
 
-		value = obj.get<std::string>();
+		return obj.get<std::string>();
 	}
 	catch (nlohmann::detail::type_error&)
 	{
-		utils::throwError("Value at '" + getLocationString(location) + "' is invalid.");
-		value = "";
+		utils::ThrowError("Value at '" + getLocationString(location) + "' is invalid.");
+		return "";
 	}
 }
 

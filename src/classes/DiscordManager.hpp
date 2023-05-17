@@ -24,6 +24,8 @@ public:
 	void setSmallImage(const char* image, const char* text = nullptr);
 	void update();
 
+	void shutdown();
+
 private:
 	discord::Core* m_Core{};
 	discord::Activity m_Activity{};

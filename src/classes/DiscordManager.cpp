@@ -7,7 +7,7 @@ DiscordManager::DiscordManager()
 
 DiscordManager::~DiscordManager()
 {
-    delete m_Core;
+    shutdown();
 }
 
 void DiscordManager::create(const discord::ClientId clientid)
@@ -56,5 +56,10 @@ void DiscordManager::setSmallImage(const char* image, const char* text)
 void DiscordManager::update()
 {
     m_Core->ActivityManager().UpdateActivity(m_Activity, [](discord::Result result) { });
-    m_Core->RunCallbacks();
+    m_Result = m_Core->RunCallbacks();
+}
+
+void DiscordManager::shutdown()
+{
+    delete m_Core;
 }

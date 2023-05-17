@@ -19,8 +19,8 @@ public:
 	void setDumpPath(const std::string& path);
 	bool isDumpReady();
 
-	void dumpValues();
-	void loadValue(std::string& value, std::vector<std::string> location);
+	bool dumpValues();
+	std::string loadValue(std::vector<std::string> location);
 
 	void printDump(std::vector<sspair> pairs);
 

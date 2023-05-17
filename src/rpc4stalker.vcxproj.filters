@@ -1,9 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <ClCompile Include="main.cpp">
-      <Filter>src</Filter>
-    </ClCompile>
     <ClCompile Include="classes\CodePageConverter.cpp">
       <Filter>src\classes</Filter>
     </ClCompile>
@@ -58,6 +55,12 @@
     <ClCompile Include="..\lib\discord_sdk\include\voice_manager.cpp">
       <Filter>lib\discord_sdk\include</Filter>
     </ClCompile>
+    <ClCompile Include="dllmain.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="classes\Console.cpp">
+      <Filter>src\classes</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="lib">
@@ -78,17 +81,11 @@
     <Filter Include="lib\discord_sdk\include">
       <UniqueIdentifier>{3df245e8-99a2-45fe-8e24-e98b2dfe0e09}</UniqueIdentifier>
     </Filter>
-    <Filter Include="lib\discord_sdk\lib\x86">
-      <UniqueIdentifier>{c8ab5cd3-54e7-4067-8df8-6fdbeb67b9e3}</UniqueIdentifier>
-    </Filter>
     <Filter Include="lib\iconv">
       <UniqueIdentifier>{eb1453f8-9e1c-469f-8b10-2fcefc3cc8fe}</UniqueIdentifier>
     </Filter>
     <Filter Include="lib\iconv\lib">
       <UniqueIdentifier>{3787220e-ab24-4006-a850-9d48a3d59d08}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="lib\iconv\lib\x86">
-      <UniqueIdentifier>{a029df4f-93b6-4227-9f86-603afa366952}</UniqueIdentifier>
     </Filter>
     <Filter Include="lib\iconv\include">
       <UniqueIdentifier>{4560f64d-74b1-46c7-9b93-f3beaba4e38a}</UniqueIdentifier>
@@ -129,11 +126,17 @@
     <Filter Include="data\gamedata\scripts">
       <UniqueIdentifier>{02e54756-e538-47e3-81a6-fab6dfb7b180}</UniqueIdentifier>
     </Filter>
-    <Filter Include="data\discord_sdk\x86">
-      <UniqueIdentifier>{5be5fac6-c25e-4781-bc93-3da87789cf32}</UniqueIdentifier>
-    </Filter>
     <Filter Include="data\discord_sdk\x64">
       <UniqueIdentifier>{1d0f0f8e-4ee5-43d5-81af-25d003fb51c5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="lib\discord_sdk\lib\x86">
+      <UniqueIdentifier>{4e2ab111-98e5-498f-8244-97500e3d3c97}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="data\discord_sdk\x86">
+      <UniqueIdentifier>{70e470e1-089e-4bc3-acb6-44de8969255c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="lib\iconv\lib\x86">
+      <UniqueIdentifier>{0f45db88-7d19-4aa9-b751-354db16190fd}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -215,16 +218,22 @@
     <ClInclude Include="..\lib\discord_sdk\include\voice_manager.h">
       <Filter>lib\discord_sdk\include</Filter>
     </ClInclude>
+    <ClInclude Include="classes\Console.hpp">
+      <Filter>src\classes</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <Library Include="..\lib\discord_sdk\lib\x86\discord_game_sdk.dll.lib">
-      <Filter>lib\discord_sdk\lib\x86</Filter>
-    </Library>
     <Library Include="..\lib\iconv\lib\x64\libiconv.lib">
       <Filter>lib\iconv\lib\x64</Filter>
     </Library>
     <Library Include="..\lib\iconv\lib\x64\libiconv_d.lib">
       <Filter>lib\iconv\lib\x64</Filter>
+    </Library>
+    <Library Include="..\lib\discord_sdk\lib\x64\discord_game_sdk.dll.lib">
+      <Filter>lib\discord_sdk\lib\x64</Filter>
+    </Library>
+    <Library Include="..\lib\discord_sdk\lib\x86\discord_game_sdk.dll.lib">
+      <Filter>lib\discord_sdk\lib\x86</Filter>
     </Library>
     <Library Include="..\lib\iconv\lib\x86\libiconv.lib">
       <Filter>lib\iconv\lib\x86</Filter>
@@ -232,14 +241,8 @@
     <Library Include="..\lib\iconv\lib\x86\libiconv_d.lib">
       <Filter>lib\iconv\lib\x86</Filter>
     </Library>
-    <Library Include="..\lib\discord_sdk\lib\x64\discord_game_sdk.dll.lib">
-      <Filter>lib\discord_sdk\lib\x64</Filter>
-    </Library>
   </ItemGroup>
   <ItemGroup>
-    <Image Include="..\res\icon.ico">
-      <Filter>res</Filter>
-    </Image>
     <Image Include="..\readme-res\discord.png">
       <Filter>readme-res</Filter>
     </Image>
@@ -260,9 +263,6 @@
     <None Include="..\data\redist\VC_redist.x64.exe">
       <Filter>data\redist</Filter>
     </None>
-    <None Include="..\data\redist\VC_redist.x86.exe">
-      <Filter>data\redist</Filter>
-    </None>
     <None Include="..\data\gamedata\scripts\rpc4stalker.script">
       <Filter>data\gamedata\scripts</Filter>
     </None>
@@ -271,6 +271,9 @@
     </None>
     <None Include="..\data\discord_sdk\x86\discord_game_sdk.dll">
       <Filter>data\discord_sdk\x86</Filter>
+    </None>
+    <None Include="..\data\redist\VC_redist.x86.exe">
+      <Filter>data\redist</Filter>
     </None>
   </ItemGroup>
   <ItemGroup>
