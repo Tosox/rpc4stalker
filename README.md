@@ -46,16 +46,16 @@ No, because no files need to be overwritten during the installation.
 
 ## Compatability
 
-| Game									| Platform	| Data Install Location		|
+| Game                                  | Platform  | Data Install Location     |
 |-------------------------------------------------------------------------------|
-| S.T.A.L.K.E.R. Call of Chernobyl		| Win32		| /bin/						|
-| S.T.A.L.K.E.R. Call of The Zone		| Win32		| /bin/						|
-| S.T.A.L.K.E.R. Call of Misery			| Win32		| /bin/						|
-| S.T.A.L.K.E.R. Road To The North		| Win64		| /bin/						|
-| S.T.A.L.K.E.R. Global War				| Win32		| /bin/						|
-| S.T.A.L.K.E.R. Anomaly				| Win64		| /bin/						|
-| S.T.A.L.K.E.R. Dead Air				| Win32		| /							|
-| S.T.A.L.K.E.R. A.R.E.A.				| Win32		| /bin/						|
+| S.T.A.L.K.E.R. Call of Chernobyl      | Win32     | /bin/                     |
+| S.T.A.L.K.E.R. Call of The Zone       | Win32     | /bin/                     |
+| S.T.A.L.K.E.R. Call of Misery         | Win32     | /bin/                     |
+| S.T.A.L.K.E.R. Road To The North      | Win64     | /bin/                     |
+| S.T.A.L.K.E.R. Global War             | Win32     | /bin/                     |
+| S.T.A.L.K.E.R. Anomaly                | Win64     | /bin/                     |
+| S.T.A.L.K.E.R. Dead Air               | Win32     | /                         |
+| S.T.A.L.K.E.R. A.R.E.A.               | Win32     | /bin/                     |
 
 ## Credits
 - [ThirteenAG](https://github.com/ThirteenAG) for his [ASI-Loader](https://github.com/ThirteenAG/Ultimate-ASI-Loader)
