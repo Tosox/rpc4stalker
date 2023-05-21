@@ -275,6 +275,5 @@
     <None Include="..\data\redist\VC_redist.x86.exe">
       <Filter>data\redist</Filter>
     </None>
-    <None Include="..\COMPATABILITY.md" />
   </ItemGroup>
 </Project>
