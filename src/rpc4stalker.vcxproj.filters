@@ -275,10 +275,6 @@
     <None Include="..\data\redist\VC_redist.x86.exe">
       <Filter>data\redist</Filter>
     </None>
-  </ItemGroup>
-  <ItemGroup>
-    <Text Include="..\readme-res\compatibility.txt">
-      <Filter>readme-res</Filter>
-    </Text>
+    <None Include="..\COMPATABILITY.md" />
   </ItemGroup>
 </Project>

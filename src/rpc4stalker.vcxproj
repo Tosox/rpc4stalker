@@ -245,6 +245,7 @@
   <ItemGroup>
     <None Include="..\.gitattributes" />
     <None Include="..\.gitignore" />
+    <None Include="..\COMPATABILITY.md" />
     <None Include="..\data\discord_sdk\x64\discord_game_sdk.dll" />
     <None Include="..\data\discord_sdk\x86\discord_game_sdk.dll" />
     <None Include="..\data\gamedata\scripts\rpc4stalker.script" />
@@ -252,9 +253,6 @@
     <None Include="..\data\redist\VC_redist.x86.exe" />
     <None Include="..\LICENSE" />
     <None Include="..\README.md" />
-  </ItemGroup>
-  <ItemGroup>
-    <Text Include="..\readme-res\compatibility.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -36,15 +36,29 @@
 
 ## FAQ
 ### Which S.T.A.L.K.E.R. games is the program compatible with?
-It is compatible with all games *based* on the [Call of Chernobyl](https://www.moddb.com/mods/call-of-chernobyl) mod. Unfortunately, this does not include the three original games. A list of tested games can be found [here](readme-res/compatibility.txt).
+It is compatible with all games *based* on the [Call of Chernobyl](https://www.moddb.com/mods/call-of-chernobyl) mod. Unfortunately, this does not include the three original games. A list of tested games can be found [here](COMPATABILITY.md).
 
 ### How does the program work?
-The mod that needs to be installed is the most important part of this program. It saves the data to be displayed in the discord status in a file in `%temp%\rpc4stalker.json`. The executable is only responsible for reading and transmitting the data to discord via their [GameSDK](https://discord.com/developers/docs/game-sdk/sdk-starter-guide).
+The mod that needs to be installed is the most important part of this program. It saves the data to be displayed in the discord status in a file in `%temp%\rpc4stalker.json`. The dll is only responsible for reading and transmitting the data to discord via their [GameSDK](https://discord.com/developers/docs/game-sdk/sdk-starter-guide).
 
 ### Can the mod conflict with other mods?
 No, because no files need to be overwritten during the installation.
 
+## Compatability
+
+| Game									| Platform	| Data Install Location		|
+|-------------------------------------------------------------------------------|
+| S.T.A.L.K.E.R. Call of Chernobyl		| Win32		| /bin/						|
+| S.T.A.L.K.E.R. Call of The Zone		| Win32		| /bin/						|
+| S.T.A.L.K.E.R. Call of Misery			| Win32		| /bin/						|
+| S.T.A.L.K.E.R. Road To The North		| Win64		| /bin/						|
+| S.T.A.L.K.E.R. Global War				| Win32		| /bin/						|
+| S.T.A.L.K.E.R. Anomaly				| Win64		| /bin/						|
+| S.T.A.L.K.E.R. Dead Air				| Win32		| /							|
+| S.T.A.L.K.E.R. A.R.E.A.				| Win32		| /bin/						|
+
 ## Credits
+- [ThirteenAG](https://github.com/ThirteenAG) for his [ASI-Loader](https://github.com/ThirteenAG/Ultimate-ASI-Loader)
 - [Discord](https://github.com/discord) for their [GameSDK](https://discord.com/developers/docs/game-sdk/sdk-starter-guide)
 - [GNU](https://www.gnu.org) for their conversion library [libiconv](https://www.gnu.org/software/libiconv)
 - [nlohmann](https://github.com/nlohmann) for a modern C++ [implementation of JSON](https://github.com/nlohmann/json)
