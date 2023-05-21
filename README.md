@@ -45,9 +45,8 @@ The mod that needs to be installed is the most important part of this program. I
 No, because no files need to be overwritten during the installation.
 
 ## Compatability
-
 | Game                                  | Platform  | Data Install Location     |
-|-------------------------------------------------------------------------------|
+|---------------------------------------|-----------|---------------------------|
 | S.T.A.L.K.E.R. Call of Chernobyl      | Win32     | /bin/                     |
 | S.T.A.L.K.E.R. Call of The Zone       | Win32     | /bin/                     |
 | S.T.A.L.K.E.R. Call of Misery         | Win32     | /bin/                     |
