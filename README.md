@@ -23,16 +23,20 @@
 
 ## Installation
 - Download the latest [release](https://github.com/TosoxDev/rpc4stalker/releases)
-- Open the compressed file and install the mod located in the `data` folder like any other mod for S.T.A.L.K.E.R.
-- Install both VC Redistributables located in the `redist` folder if necessary
-- Open the game and load a save
-- Run the program
+- Install the VC Redistributables located in the `redist` folder if necessary
+- Install the `gamedata` folder like any other mod
+- Copy the contents of the `win32` folder into the [Data Install Location](#Compatability) if the game's platform is x32
+- Copy the contents of the `win64` folder into the [Data Install Location](#Compatability) if the game's platform is x64
+    * You can check the platform of some tested games [here](#Compatability)
+- If everything was installed correctly, a console window should appear when the game is started
+- Open the game and load a save to update the rich presence data
 
 ## Compilation
 - `C++ 17` is required for compilation
 
 ## Preview
-<img src="readme-res/preview.png" width="650" height="340" /> <img src="readme-res/discord.png" width="225" height="340" />
+<img src="readme-res/preview.png" width="650" height="340"/>
+<img src="readme-res/discord.png" width="225" height="340"/>
 
 ## FAQ
 ### Which S.T.A.L.K.E.R. games is the program compatible with?
