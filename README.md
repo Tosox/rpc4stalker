@@ -25,8 +25,8 @@
 - Download the latest [release](https://github.com/TosoxDev/rpc4stalker/releases)
 - Install the VC Redistributables located in the `redist` folder if necessary
 - Install the `gamedata` folder like any other mod
-- Copy the contents of the `win32` folder into the [Data Install Location](#Compatability) if the game's platform is x32
-- Copy the contents of the `win64` folder into the [Data Install Location](#Compatability) if the game's platform is x64
+- Copy the contents of the `win32` folder into the [Data Install Location](#Compatability) (usually the `bin` folder) if the game's platform is x32
+- Copy the contents of the `win64` folder into the [Data Install Location](#Compatability) (usually the `bin` folder) if the game's platform is x64
     * You can check the platform of some tested games [here](#Compatability)
 - If everything was installed correctly, a console window should appear when the game is started
 - Open the game and load a save to update the rich presence data
