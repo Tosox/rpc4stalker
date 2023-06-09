@@ -17,8 +17,12 @@ function write_rpc_values()
 	end
 
 	local file = io.open(file_path, "w")
-	file:write(string.format(dump_template, loc, lvl_name, faction_raw_name, faction_name, curr_task))
-	file:close()
+	if file then
+		file:write(string.format(dump_template, loc, lvl_name, faction_raw_name, faction_name, curr_task))
+		file:close()
+	else
+		printe("[rpc4stalker] Error: Unable to write to %s", file_path)
+	end
 end
 
 function actor_on_first_update()
