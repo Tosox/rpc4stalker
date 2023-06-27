@@ -61,13 +61,10 @@ unsigned long WINAPI MainThread(void* instance)
 			std::make_pair("Task", task)
 		});
 
-		discordManager.setSmallImage(
-			utils::FindStrStrMap(COMMUNITY_TABLE, faction_raw, "stalker_patch_stalker").c_str(),
-			faction.c_str()
-		);
-
 		std::string exploringLevel = utils::FindStrStrMap(LANGUAGE_TABLE, localization, "Exploring: ") + level;
+		std::string patchImage = utils::FindStrStrMap(COMMUNITY_TABLE, faction_raw, "stalker_patch_stalker");
 
+		discordManager.setSmallImage(patchImage.c_str(), faction.c_str());
 		discordManager.setDetails(exploringLevel.c_str());
 		discordManager.setState(task.c_str());
 		discordManager.update();
