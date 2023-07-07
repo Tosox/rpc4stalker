@@ -245,6 +245,8 @@
   <ItemGroup>
     <None Include="..\.gitattributes" />
     <None Include="..\.gitignore" />
+    <None Include="..\data\asi_loader\x64\dinput8.dll" />
+    <None Include="..\data\asi_loader\x86\dinput8.dll" />
     <None Include="..\data\discord_sdk\x64\discord_game_sdk.dll" />
     <None Include="..\data\discord_sdk\x86\discord_game_sdk.dll" />
     <None Include="..\data\gamedata\scripts\rpc4stalker.script" />

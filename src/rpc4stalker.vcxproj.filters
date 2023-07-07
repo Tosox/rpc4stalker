@@ -138,6 +138,15 @@
     <Filter Include="lib\iconv\lib\x86">
       <UniqueIdentifier>{0f45db88-7d19-4aa9-b751-354db16190fd}</UniqueIdentifier>
     </Filter>
+    <Filter Include="data\asi_loader">
+      <UniqueIdentifier>{adb45290-2c91-4dc1-a66b-ed7b9651a190}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="data\asi_loader\x86">
+      <UniqueIdentifier>{ff5951ec-9099-4ef4-a57d-1fbca5515aa2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="data\asi_loader\x64">
+      <UniqueIdentifier>{a8f140a3-aef0-47a2-8010-b64b2945c29e}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\lib\json\json.hpp">
@@ -274,6 +283,12 @@
     </None>
     <None Include="..\data\redist\VC_redist.x86.exe">
       <Filter>data\redist</Filter>
+    </None>
+    <None Include="..\data\asi_loader\x64\dinput8.dll">
+      <Filter>data\asi_loader\x64</Filter>
+    </None>
+    <None Include="..\data\asi_loader\x86\dinput8.dll">
+      <Filter>data\asi_loader\x86</Filter>
     </None>
   </ItemGroup>
 </Project>
