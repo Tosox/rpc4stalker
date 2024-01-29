@@ -1,18 +1,18 @@
+-- Import discord_game_sdk.lua
 package.path = package.path .. ';gamedata\\scripts\\discord_game_sdk\\?.lua'
-
 local game_sdk = require("discord_game_sdk")
 
 local discord_instance = game_sdk.initialize(890702387025702922LL)
 
-local startTime = os.time(os.date("*t"))
+local start_time = os.time(os.date("*t"))
 
 local ini_loc = ini_file("localization.ltx")
 
 local presence = {
     state = "", -- Second line
     details = "", -- Third line
-    start_time = startTime, -- Epoch
-    end_time = startTime + 60,
+    start_time = start_time, -- Epoch
+    end_time = start_time + 60,
     large_image = "", -- Image key
     large_text = "",
     small_image = "", -- Image key
@@ -46,7 +46,7 @@ end
 
 function actor_on_first_update()
 	CreateTimeEvent("rpc4stalker", "update_discord_presence", 0.0, function()
-		discord_instance = game_sdk.updatePresence(discord_instance, get_presence_data())
+		discord_instance = game_sdk.update_presence(discord_instance, get_presence_data())
 		ResetTimeEvent("rpc4stalker", "update_discord_presence", 5.0)
 	end)
 end
