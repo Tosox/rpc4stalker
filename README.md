@@ -1,9 +1,9 @@
 # rpc4stalker
 [![](https://img.shields.io/badge/Language-C%2B%2B-%23f34b7d.svg?style=flat)](https://en.wikipedia.org/wiki/C%2B%2B) 
 [![](https://img.shields.io/badge/Game-S.T.A.L.K.E.R.-yellow.svg?style=flat)](https://store.steampowered.com/app/41700/STALKER_Call_of_Pripyat) 
-[![](https://img.shields.io/github/languages/code-size/TosoxDev/rpc4stalker?color=blue&label=Code%20size&style=flat)](https://github.com/TosoxDev/rpc4stalker)
-[![](https://img.shields.io/tokei/lines/github/TosoxDev/rpc4stalker?color=red&label=Total%20lines&style=flat)](https://github.com/TosoxDev/rpc4stalker)
-[![](https://img.shields.io/github/downloads/TosoxDev/rpc4stalker/total?color=green&label=Downloads&style=flat)](https://github.com/TosoxDev/rpc4stalker/releases)
+[![](https://img.shields.io/github/languages/code-size/Tosox/rpc4stalker?color=blue&label=Code%20size&style=flat)](https://github.com/Tosox/rpc4stalker)
+[![](https://tokei.rs/b1/github/Tosox/rpc4stalker?color=red&label=Total%20lines&style=flat)](https://github.com/Tosox/rpc4stalker)
+[![](https://img.shields.io/github/downloads/Tosox/rpc4stalker/total?color=green&label=Downloads&style=flat)](https://github.com/Tosox/rpc4stalker/releases)
 
 > Note: *This mod is only compatible with games based on [Call of Chernobyl](https://www.moddb.com/mods/call-of-chernobyl)*
 
