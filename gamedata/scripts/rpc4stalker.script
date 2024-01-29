@@ -1,0 +1,56 @@
+package.path = package.path .. ';gamedata\\scripts\\discord_game_sdk\\?.lua'
+
+local game_sdk = require("discord_game_sdk")
+
+local discord_instance = game_sdk.initialize(890702387025702922LL)
+
+local startTime = os.time(os.date("*t"))
+
+local ini_loc = ini_file("localization.ltx")
+
+local presence = {
+    state = "", -- Second line
+    details = "", -- Third line
+    start_time = startTime, -- Epoch
+    end_time = startTime + 60,
+    large_image = "", -- Image key
+    large_text = "",
+    small_image = "", -- Image key
+    small_text = "",
+    party_id = "",
+    party_size = 0,
+    party_max = 0,
+    match_secret = "", -- Not exactly sure how to use them >.<
+    join_secret = "",
+    spectate_secret = ""
+}
+
+function get_presence_data()
+	local loc = ini_loc:r_string("string_table", "language") or "eng"
+	local lvl_name = game.translate_string(level.name())
+	local faction_raw_name = db.actor:character_community()
+	local faction_name = game.translate_string(db.actor:character_community())
+	local curr_task = ""
+	for _, tsk in pairs(task_manager.get_task_manager().task_info) do
+		if db.actor:is_active_task(db.actor:get_task(tsk.id, true)) then
+			curr_task = game.translate_string(tsk.current_title)
+			break
+		end
+	end
+	
+	presence.state = curr_task
+	presence.details = lvl_name
+
+	return presence
+end
+
+function actor_on_first_update()
+	CreateTimeEvent("rpc4stalker", "update_discord_presence", 0.0, function()
+		discord_instance = game_sdk.updatePresence(discord_instance, get_presence_data())
+		ResetTimeEvent("rpc4stalker", "update_discord_presence", 5.0)
+	end)
+end
+
+function on_game_start()
+	RegisterScriptCallback("actor_on_first_update", actor_on_first_update)
+end
