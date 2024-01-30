@@ -2,11 +2,13 @@
 package.path = package.path .. ';gamedata\\scripts\\discord_game_sdk\\?.lua'
 local game_sdk = require("discord_game_sdk")
 
-local discord_instance = game_sdk.initialize(890702387025702922LL)
-
-local start_time = os.time(os.date("*t"))
+-- Set discord_game_sdk's print function to Xray's printf
+game_sdk.print = function(arg)
+	printf("[rpc4stalker] " .. arg)
+end
 
 local ini_loc = ini_file("localization.ltx")
+local start_time = os.time(os.date("*t"))
 
 local presence = {
     state = "", -- Second line
@@ -45,6 +47,8 @@ function get_presence_data()
 end
 
 function actor_on_first_update()
+	local discord_instance = game_sdk.initialize(890702387025702922LL)
+
 	CreateTimeEvent("rpc4stalker", "update_discord_presence", 5.0, function()
 		discord_instance = game_sdk.update_presence(discord_instance, get_presence_data())
 		ResetTimeEvent("rpc4stalker", "update_discord_presence", 5.0)
