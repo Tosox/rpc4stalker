@@ -702,6 +702,9 @@ struct Application {
 ]]
 }
 
+-- Need to break down the string in smaller chunks
+-- since it causes a "Chunk has too many syntax levels" error otherwise
+-- https://help.interfaceware.com/v6/chunk-has-too-many-syntax-levels-error-very-large-string
 ffi.cdef(table.concat(discord_game_sdk_h))
 
 -- Implement set default function in Lua because
@@ -723,7 +726,8 @@ local function create_params_set_default(params_ptr)
 	return params
 end
 
-local discord_game_sdk = {} -- module table
+-- module table
+local discord_game_sdk = {}
 
 -- proxy to detect garbage collection of the module
 discord_game_sdk.gc_dummy = newproxy(true)
