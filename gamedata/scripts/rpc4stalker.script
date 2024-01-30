@@ -48,6 +48,7 @@ function actor_on_first_update()
 	CreateTimeEvent("rpc4stalker", "update_discord_presence", 5.0, function()
 		discord_instance = game_sdk.update_presence(discord_instance, get_presence_data())
 		ResetTimeEvent("rpc4stalker", "update_discord_presence", 5.0)
+		return false
 	end)
 end
 
