@@ -726,10 +726,22 @@ local function create_params_set_default(params_ptr)
 	return params
 end
 
--- module table
-local discord_game_sdk = {}
+-- Module table
+local discord_game_sdk = {
+	-- Shouldn't be overwritten
+	LOG_LEVEL_NONE = 0,
+	LOG_LEVEL_ERROR = 1,
+	LOG_LEVEL_WARNING = 2,
+	LOG_LEVEL_INFO = 3,
 
--- proxy to detect garbage collection of the module
+	options = {
+		-- Can be overwritten
+		print = print,
+		log_level = 2,
+	}
+}
+
+-- Proxy to detect garbage collection of the module
 discord_game_sdk.gc_dummy = newproxy(true)
 
 local on_user_updated = ffi.cast("onUserUpdatedPtr", function(data)
@@ -739,11 +751,16 @@ local on_user_updated = ffi.cast("onUserUpdatedPtr", function(data)
 	local user_ptr = ffi.new("struct DiscordUser[1]", user)
 	app.users.get_current_user(app.users, user_ptr)
 	user = user_ptr[0]
-	printf("Displaying Discord Status on user: %s#%s", ffi.string(user.username), ffi.string(user.discriminator))
+
+	if discord_game_sdk.options.log_level >= discord_game_sdk.LOG_LEVEL_INFO then
+		discord_game_sdk.print(string.format("Displaying Discord Status on user: %s#%s", ffi.string(user.username), ffi.string(user.discriminator)))
+	end
 end)
 
 local logger_callback = ffi.cast("loggerPtr", function(data, level, message)
-	printf("Discord reported an error of severity %s: %s", tostring(level), ffi.string(message))
+	if discord_game_sdk.options.log_level >= discord_game_sdk.LOG_LEVEL_ERROR then
+		discord_game_sdk.print(string.format("Discord reported an error of severity %s: %s", tostring(level), ffi.string(message)))
+	end
 end)
 
 -- Helper function to make sure the input is a given type
@@ -874,17 +891,25 @@ end
 
 local update_activity_callback = ffi.cast("callbackPtr", function(callback_data, discord_result)
 	if discord_result == game_sdk.DiscordResult_Ok then
-		printf("Successfully updated Discord activity")
+		if discord_game_sdk.options.log_level >= discord_game_sdk.LOG_LEVEL_INFO then
+			discord_game_sdk.print("Successfully updated Discord activity")
+		end
 	else
-		printf("Failed updating Discord activity: %s", tostring(discord_result))
+		if discord_game_sdk.options.log_level >= discord_game_sdk.LOG_LEVEL_WARNING then
+			discord_game_sdk.print(string.format("Failed updating Discord activity: %s", tostring(discord_result)))
+		end
 	end
 end)
 
 local clear_activity_callback = ffi.cast("callbackPtr", function(callback_data, discord_result)
 	if discord_result == game_sdk.DiscordResult_Ok then
-		printf("Successfully cleared Discord activity")
+		if discord_game_sdk.options.log_level >= discord_game_sdk.LOG_LEVEL_INFO then
+			discord_game_sdk.print("Successfully cleared Discord activity")
+		end
 	else
-		printf("Failed clearing Discord activity: %s", tostring(discord_result))
+		if discord_game_sdk.options.log_level >= discord_game_sdk.LOG_LEVEL_WARNING then
+			discord_game_sdk.print(string.format("Failed clearing Discord activity: %s", tostring(discord_result)))
+		end
 	end
 end)
 
