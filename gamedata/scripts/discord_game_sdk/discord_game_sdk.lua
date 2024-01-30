@@ -796,7 +796,7 @@ function check_int_arg(arg, max_bits, arg_name, func, maybe_nil)
 	max_bits = math.min(max_bits or 32, 52) -- lua number (double) can only store integers < 2^53
 	local max_val = 2 ^ (max_bits - 1) -- assuming signed integers, which, for now, are the only ones in use
 	assert(
-		((type(arg) == "number") and (math.floor(arg) == arg) and (arg < max_val) and (arg >= -max_val)) or ((maxbe_nil) and (arg == nil)),
+		((type(arg) == "number") and (math.floor(arg) == arg) and (arg < max_val) and (arg >= -max_val)) or ((maybe_nil) and (arg == nil)),
 		string.format("Argument \"%s\" of function \"%s\" has to be a whole number <= %d",
 			arg_name,
 			func,
