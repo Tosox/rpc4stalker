@@ -7,55 +7,64 @@ game_sdk.print = function(arg)
 	printf("[rpc4stalker] " .. arg)
 end
 
-local ini_loc = ini_file("localization.ltx")
+-- TODO: Remove since just for debugging
+game_sdk.options.log_level = game_sdk.LOG_LEVEL_INFO
+
 local start_time = os.time(os.date("*t"))
 
 local presence = {
-    state = "", -- Second line
-    details = "", -- Third line
-    start_time = start_time, -- Epoch
-    end_time = start_time + 60,
-    large_image = "", -- Image key
-    large_text = "",
-    small_image = "", -- Image key
+	start_time = start_time,
+	large_image = "stalker_icon_0",
+    large_text = "S.T.A.L.K.E.R.",
+	details = "",
+    state = "",
+    small_image = "",
     small_text = "",
-    party_id = "",
-    party_size = 0,
-    party_max = 0,
-    match_secret = "", -- Not exactly sure how to use them >.<
-    join_secret = "",
-    spectate_secret = ""
 }
 
-function get_presence_data()
-	local loc = ini_loc:r_string("string_table", "language") or "eng"
+function update_presence_data()
 	local lvl_name = game.translate_string(level.name())
-	local faction_raw_name = db.actor:character_community()
-	local faction_name = game.translate_string(db.actor:character_community())
-	local curr_task = ""
+	presence.details = game.translate_string("st_rpc4stalker_exploring") .. ": " .. lvl_name
+
 	for _, tsk in pairs(task_manager.get_task_manager().task_info) do
 		if db.actor:is_active_task(db.actor:get_task(tsk.id, true)) then
-			curr_task = game.translate_string(tsk.current_title)
+			presence.state = game.translate_string(tsk.current_title)
 			break
 		end
 	end
-	
-	presence.state = curr_task
-	presence.details = lvl_name
 
-	return presence
+	local faction_name = game.translate_string(db.actor:character_community())
+	presence.small_text = faction_name
+
+	local faction_raw_name = string.match(db.actor:character_community(), "^actor_(.+)")
+	if faction_raw_name then
+		presence.small_image = "stalker_patch_" .. faction_raw_name
+	end
 end
 
+local discord_instance = nil
+
 function actor_on_first_update()
-	local discord_instance = game_sdk.initialize(890702387025702922LL)
+	discord_instance = game_sdk.initialize(890702387025702922LL)
 
 	CreateTimeEvent("rpc4stalker", "update_discord_presence", 5.0, function()
-		discord_instance = game_sdk.update_presence(discord_instance, get_presence_data())
+		update_presence_data()
+		discord_instance = game_sdk.update_presence(discord_instance, presence)
+
+		-- Wait 5 seconds then loop again
 		ResetTimeEvent("rpc4stalker", "update_discord_presence", 5.0)
 		return false
 	end)
 end
 
+function actor_on_net_destroy()
+	if discord_instance then
+		-- Not working for some reason
+		game_sdk.clear_presence(discord_instance)
+	end
+end
+
 function on_game_start()
 	RegisterScriptCallback("actor_on_first_update", actor_on_first_update)
+	RegisterScriptCallback("actor_on_net_destroy", actor_on_net_destroy)
 end
