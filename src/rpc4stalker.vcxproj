@@ -252,8 +252,6 @@
     <None Include="..\data\discord_sdk\x64\discord_game_sdk.dll" />
     <None Include="..\data\discord_sdk\x86\discord_game_sdk.dll" />
     <None Include="..\data\gamedata\scripts\rpc4stalker.script" />
-    <None Include="..\data\redist\VC_redist.x64.exe" />
-    <None Include="..\data\redist\VC_redist.x86.exe" />
     <None Include="..\LICENSE" />
     <None Include="..\README.md" />
   </ItemGroup>

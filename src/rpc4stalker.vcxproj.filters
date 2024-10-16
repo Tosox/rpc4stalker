@@ -117,9 +117,6 @@
     <Filter Include="data">
       <UniqueIdentifier>{01db64b0-6dc2-475d-89d6-13722bfcc5a5}</UniqueIdentifier>
     </Filter>
-    <Filter Include="data\redist">
-      <UniqueIdentifier>{a8de6bb2-45e0-43c1-84ab-4ef5b2a23e1b}</UniqueIdentifier>
-    </Filter>
     <Filter Include="data\discord_sdk">
       <UniqueIdentifier>{a9cfd751-bd04-4cf1-a781-e665335b9bbb}</UniqueIdentifier>
     </Filter>
@@ -275,9 +272,6 @@
     <None Include="..\.gitignore" />
     <None Include="..\LICENSE" />
     <None Include="..\README.md" />
-    <None Include="..\data\redist\VC_redist.x64.exe">
-      <Filter>data\redist</Filter>
-    </None>
     <None Include="..\data\gamedata\scripts\rpc4stalker.script">
       <Filter>data\gamedata\scripts</Filter>
     </None>
@@ -286,9 +280,6 @@
     </None>
     <None Include="..\data\discord_sdk\x86\discord_game_sdk.dll">
       <Filter>data\discord_sdk\x86</Filter>
-    </None>
-    <None Include="..\data\redist\VC_redist.x86.exe">
-      <Filter>data\redist</Filter>
     </None>
     <None Include="..\data\asi_loader\x64\dinput8.dll">
       <Filter>data\asi_loader\x64</Filter>
