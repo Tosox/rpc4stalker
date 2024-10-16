@@ -61,8 +61,8 @@ LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
 //
 
 VS_VERSION_INFO VERSIONINFO
- FILEVERSION 3,0,1,0
- PRODUCTVERSION 3,0,1,0
+ FILEVERSION 1,0,0,0
+ PRODUCTVERSION 1,0,0,0
  FILEFLAGSMASK 0x3fL
 #ifdef _DEBUG
  FILEFLAGS 0x1L
@@ -78,12 +78,12 @@ BEGIN
         BLOCK "040704b0"
         BEGIN
             VALUE "CompanyName", "Tosox"
-            VALUE "FileVersion", "3.0.1.0"
-            VALUE "InternalName", "rpc4stalker"
-            VALUE "LegalCopyright", "Copyright © 2023"
-            VALUE "OriginalFilename", "rpc4stalker.exe"
-            VALUE "ProductName", "rpc4stalker"
-            VALUE "ProductVersion", "3.0.1.0"
+            VALUE "FileVersion", "1.0.0.0"
+            VALUE "InternalName", "rpc4games"
+            VALUE "LegalCopyright", "Copyright © 2024"
+            VALUE "OriginalFilename", "rpc4games.dll"
+            VALUE "ProductName", "rpc4games"
+            VALUE "ProductVersion", "1.0.0.0"
         END
     END
     BLOCK "VarFileInfo"
