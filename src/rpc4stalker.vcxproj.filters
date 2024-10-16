@@ -7,7 +7,7 @@
     <ClCompile Include="classes\DiscordManager.cpp">
       <Filter>src\classes</Filter>
     </ClCompile>
-    <ClCompile Include="classes\Dumper.cpp">
+    <ClCompile Include="classes\DataReader.cpp">
       <Filter>src\classes</Filter>
     </ClCompile>
     <ClCompile Include="utils\utils.cpp">
@@ -59,6 +59,9 @@
       <Filter>src</Filter>
     </ClCompile>
     <ClCompile Include="classes\Console.cpp">
+      <Filter>src\classes</Filter>
+    </ClCompile>
+    <ClCompile Include="classes\ConfigReader.cpp">
       <Filter>src\classes</Filter>
     </ClCompile>
   </ItemGroup>
@@ -164,7 +167,7 @@
     <ClInclude Include="classes\DiscordManager.hpp">
       <Filter>src\classes</Filter>
     </ClInclude>
-    <ClInclude Include="classes\Dumper.hpp">
+    <ClInclude Include="classes\DataReader.hpp">
       <Filter>src\classes</Filter>
     </ClInclude>
     <ClInclude Include="utils\utils.hpp">
@@ -228,6 +231,9 @@
       <Filter>lib\discord_sdk\include</Filter>
     </ClInclude>
     <ClInclude Include="classes\Console.hpp">
+      <Filter>src\classes</Filter>
+    </ClInclude>
+    <ClInclude Include="classes\ConfigReader.hpp">
       <Filter>src\classes</Filter>
     </ClInclude>
   </ItemGroup>

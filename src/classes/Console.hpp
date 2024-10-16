@@ -2,12 +2,11 @@
 
 #include <iostream>
 
-class Console
-{
+class Console {
 public:
-	void attach();
-	void detach();
+	static void attach();
+	static void detach();
 
 private:
-	FILE* m_File;
+	inline static FILE* file;
 };

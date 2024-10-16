@@ -190,9 +190,10 @@
     <ClCompile Include="..\lib\discord_sdk\include\user_manager.cpp" />
     <ClCompile Include="..\lib\discord_sdk\include\voice_manager.cpp" />
     <ClCompile Include="classes\CodePageConverter.cpp" />
+    <ClCompile Include="classes\ConfigReader.cpp" />
     <ClCompile Include="classes\Console.cpp" />
     <ClCompile Include="classes\DiscordManager.cpp" />
-    <ClCompile Include="classes\Dumper.cpp" />
+    <ClCompile Include="classes\DataReader.cpp" />
     <ClCompile Include="dllmain.cpp" />
     <ClCompile Include="utils\utils.cpp" />
   </ItemGroup>
@@ -218,9 +219,10 @@
     <ClInclude Include="..\lib\json\json.hpp" />
     <ClInclude Include="..\res\resource.h" />
     <ClInclude Include="classes\CodePageConverter.hpp" />
+    <ClInclude Include="classes\ConfigReader.hpp" />
     <ClInclude Include="classes\Console.hpp" />
     <ClInclude Include="classes\DiscordManager.hpp" />
-    <ClInclude Include="classes\Dumper.hpp" />
+    <ClInclude Include="classes\DataReader.hpp" />
     <ClInclude Include="settings\globals.hpp" />
     <ClInclude Include="utils\colorstream.hpp" />
     <ClInclude Include="utils\utils.hpp" />

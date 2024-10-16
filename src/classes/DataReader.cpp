@@ -1,39 +1,34 @@
-#include "Dumper.hpp"
+#include "DataReader.hpp"
 
 #include <iostream>
 #include <fstream>
 #include <sstream>
-#include <iconv.h>
 
 #include "../utils/utils.hpp"
 #include "../settings/globals.hpp"
 
-std::string Dumper::getLocationString(std::vector<std::string>& location)
-{
+std::string DataReader::getLocationString(std::vector<std::string>& location) {
 	std::stringstream stream{};
 
-	for (std::string& loc : location)
+	for (std::string& loc : location) {
 		stream << "/" << loc;
+	}
 
 	return stream.str();
 }
 
-void Dumper::setDumpPath(const std::string& path)
-{
+void DataReader::setDumpPath(const std::string& path) {
 	dumpPath = path;
 }
 
-bool Dumper::isDumpReady()
-{
+bool DataReader::isDumpReady() {
 	return std::filesystem::exists(dumpPath);
 }
 
-bool Dumper::dumpValues()
-{
+bool DataReader::dumpValues() {
 	std::ifstream inputFile{ dumpPath };
-	if (!inputFile.good())
-	{
-		utils::Log("Searching for dump file 'rpc4stalker.json'...");
+	if (!inputFile.good()) {
+		utils::logging::Info("Searching for dump file 'rpc4stalker.json'...");
 		return false;
 	}
 
@@ -42,43 +37,35 @@ bool Dumper::dumpValues()
 	std::string fileContents = fileStream.str();
 	std::string convertedFileContents = converter.convert(fileContents);
 
-	try
-	{
+	try {
 		dump = nlohmann::json::parse(convertedFileContents);
 		return true;
-	}
-	catch (nlohmann::detail::parse_error&)
-	{
-		utils::ThrowError("Found 'rpc4stalker.json', but something seems to be wrong with the file format. Retrying...");
+	} catch (nlohmann::detail::parse_error& e) {
+		utils::logging::Warning("Found 'rpc4stalker.json', but something seems to be wrong with the file format. Retrying...");
 		return false;
 	}
 }
 
-std::string Dumper::loadValue(std::vector<std::string> location)
-{
-	try
-	{
+std::string DataReader::loadValue(std::vector<std::string> location) {
+	try {
 		nlohmann::json obj{};
 		obj.update(dump);
 
-		for (std::string& path : location)
+		for (std::string& path : location) {
 			obj = obj[path];
+		}
 
 		return obj.get<std::string>();
-	}
-	catch (nlohmann::detail::type_error&)
-	{
-		utils::ThrowError("Value at '" + getLocationString(location) + "' is invalid.");
+	} catch (nlohmann::detail::type_error& e) {
+		utils::logging::Warning("Value at '" + getLocationString(location) + "' is invalid.");
 		return "";
 	}
 }
 
-void Dumper::printDump(std::vector<sspair> pairs)
-{
+void DataReader::printDump(std::vector<std::pair<std::string, std::string>> pairs) {
 	std::stringstream stream{};
 
-	for (sspair& pair : pairs)
-	{
+	for (auto& pair : pairs) {
 		pair.first.resize(20, ' ');
 
 		// TODO: Fix this hardcoded garbage and blame cpp
@@ -91,9 +78,4 @@ void Dumper::printDump(std::vector<sspair> pairs)
 	}
 
 	std::cout << stream.str();
-}
-
-void Dumper::shutdown()
-{
-	converter.close();
 }

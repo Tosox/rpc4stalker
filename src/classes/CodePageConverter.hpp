@@ -7,17 +7,18 @@
 #endif // _DEBUG
 
 #include <iostream>
-
 #include <iconv.h>
+#include <vector>
 
-class CodePageConverter
-{
+class CodePageConverter {
 public:
-    CodePageConverter(const char* from, const char* to);
+    CodePageConverter(const std::string& from, const std::string& to);
+    ~CodePageConverter();
 
-    std::string convert(std::string str);
-    void close();
+    std::string convert(const std::string& str) const;
 
 private:
     iconv_t _cv{};
+    std::string from{};
+    std::string to{};
 };

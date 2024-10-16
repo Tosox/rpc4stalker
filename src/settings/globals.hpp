@@ -25,7 +25,7 @@ const std::map<std::string, std::string> LANGUAGE_TABLE = {
 	{"rus", u8"Изучает: "}
 };
 
-static const char LOGO[1283] =
+static const char LOGO[] =
 {
 	R"(            
                                 $$\   $$\             $$\               $$\ $$\                           

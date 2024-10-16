@@ -3,15 +3,11 @@
 #include <filesystem>
 #include <string>
 #include <vector>
-
 #include <json.hpp>
 
 #include "CodePageConverter.hpp"
 
-typedef std::pair<std::string, std::string> sspair;
-
-class Dumper
-{
+class DataReader {
 public:
 	inline std::string getAbsoluteDumpPath() { return !dumpPath.empty() ? dumpPath : ""; };
 	std::string getLocationString(std::vector<std::string>& location);
@@ -22,9 +18,7 @@ public:
 	bool dumpValues();
 	std::string loadValue(std::vector<std::string> location);
 
-	void printDump(std::vector<sspair> pairs);
-
-	void shutdown();
+	void printDump(std::vector<std::pair<std::string, std::string>> pairs);
 
 private:
 	std::string dumpPath{};

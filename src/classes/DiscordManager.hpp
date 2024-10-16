@@ -4,27 +4,21 @@
 
 #include <Windows.h>
 #include <chrono>
-
 #include <discord.h>
 
-class DiscordManager
-{
+class DiscordManager {
 public:
-	DiscordManager();
-	~DiscordManager();
+	DiscordManager() : m_Result(discord::Result::NotRunning) {}
 
-	void create(const discord::ClientId);
-	bool isReady();
-
+	void create(const discord::ClientId clientId);
+	bool isReady() const;
 	void addTimestamp();
 	void setType(const discord::ActivityType type);
-	void setDetails(const char* detail);
-	void setState(const char* state);
-	void setLargeImage(const char* image, const char* text = nullptr);
-	void setSmallImage(const char* image, const char* text = nullptr);
-	void update();
-
-	void shutdown();
+	void setDetails(const std::string& detail);
+	void setState(const std::string& state);
+	void setLargeImage(const std::string& image, const std::string& text);
+	void setSmallImage(const std::string& image, const std::string& text);
+	void update(std::function<void(discord::Result)> callback);
 
 private:
 	discord::Core* m_Core{};
