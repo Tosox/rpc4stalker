@@ -1,81 +1,39 @@
 #include "DataReader.hpp"
-
-#include <iostream>
-#include <fstream>
-#include <sstream>
-
 #include "../utils/utils.hpp"
-#include "../settings/globals.hpp"
 
-std::string DataReader::getLocationString(std::vector<std::string>& location) {
-	std::stringstream stream{};
+#include <fstream>
 
-	for (std::string& loc : location) {
-		stream << "/" << loc;
-	}
-
-	return stream.str();
+DataReader::DataReader(std::filesystem::path path)
+	: FileReader(path) {
 }
 
-void DataReader::setDumpPath(const std::string& path) {
-	dumpPath = path;
-}
-
-bool DataReader::isDumpReady() {
-	return std::filesystem::exists(dumpPath);
-}
-
-bool DataReader::dumpValues() {
-	std::ifstream inputFile{ dumpPath };
-	if (!inputFile.good()) {
-		utils::logging::Info("Searching for dump file 'rpc4stalker.json'...");
+bool DataReader::readData(RPCContents* rpcContents) {
+	std::ifstream inputFile{ this->path };
+	if (!inputFile) {
+		utils::logging::Info(std::format("Searching for data file '{}'...", this->filename));
 		return false;
 	}
 
-	std::stringstream fileStream{};
-	fileStream << inputFile.rdbuf();
-	std::string fileContents = fileStream.str();
+	std::string fileContents((std::istreambuf_iterator<char>(inputFile)), std::istreambuf_iterator<char>());
 	std::string convertedFileContents = converter.convert(fileContents);
 
 	try {
-		dump = nlohmann::json::parse(convertedFileContents);
-		return true;
+		this->data = nlohmann::json::parse(convertedFileContents);
 	} catch (nlohmann::detail::parse_error& e) {
-		utils::logging::Warning("Found 'rpc4stalker.json', but something seems to be wrong with the file format. Retrying...");
+		utils::logging::Warning(std::format("Failed to parse '{}': \n" + std::string(e.what()), this->filename));
 		return false;
 	}
-}
 
-std::string DataReader::loadValue(std::vector<std::string> location) {
-	try {
-		nlohmann::json obj{};
-		obj.update(dump);
+	rpcContents->data.applicationId = loadValue<discord::ClientId>(this->data, { "data", "application_id" });
+	rpcContents->data.encoding = loadValue<std::string>(this->data, { "data", "encoding" });
 
-		for (std::string& path : location) {
-			obj = obj[path];
-		}
+	rpcContents->values.type = loadValue<discord::ActivityType>(this->data, { "values", "type" });
+	rpcContents->values.details = loadValue<std::string>(this->data, { "values", "details" });
+	rpcContents->values.state = loadValue<std::string>(this->data, { "values", "state" });
+	rpcContents->values.largeImageUrl = loadValue<std::string>(this->data, { "values", "large_img",  "url"});
+	rpcContents->values.largeImageText = loadValue<std::string>(this->data, { "values", "large_img", "text" });
+	rpcContents->values.smallImageUrl = loadValue<std::string>(this->data, { "values", "small_img", "url" });
+	rpcContents->values.smallImageText = loadValue<std::string>(this->data, { "values", "small_img", "text" });
 
-		return obj.get<std::string>();
-	} catch (nlohmann::detail::type_error& e) {
-		utils::logging::Warning("Value at '" + getLocationString(location) + "' is invalid.");
-		return "";
-	}
-}
-
-void DataReader::printDump(std::vector<std::pair<std::string, std::string>> pairs) {
-	std::stringstream stream{};
-
-	for (auto& pair : pairs) {
-		pair.first.resize(20, ' ');
-
-		// TODO: Fix this hardcoded garbage and blame cpp
-		// Color green
-		stream << "\033[32m" << "[.] " << "\033[00m"
-			<< pair.first
-			<< " : "
-			<< pair.second
-			<< "\n";
-	}
-
-	std::cout << stream.str();
+	return true;
 }

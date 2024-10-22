@@ -1,64 +1,63 @@
-﻿#include "classes/DiscordManager.hpp"
-#include "classes/DataReader.hpp"
+﻿#include "classes/ConfigReader.hpp"
 #include "classes/Console.hpp"
+#include "classes/DataReader.hpp"
+#include "classes/DiscordManager.hpp"
 #include "utils/utils.hpp"
-#include "settings/globals.hpp"
+
+void PrintValue(std::string key, const std::string& value) {
+	key.resize(20, ' ');
+	PRINT_GREEN("[.]");
+	std::cout << " " << key << ": " << value << std::endl;
+}
 
 unsigned long WINAPI MainThread(void* instance) {
-	// Open console window
+	// Console related actions
 	Console::attach();
-
-	// Init objects
-	DiscordManager discordManager{};
-	DataReader reader{};
-
 	SetConsoleOutputCP(CP_UTF8);
 	SetConsoleTitleA("rpc4games");
 
-	discordManager.addTimestamp();
-	discordManager.setType(discord::ActivityType::Playing);
-	discordManager.setLargeImage("stalker_icon_0", "S.T.A.L.K.E.R.");
+	ConfigReader cfgReader{ "rpc4games.json" };
 
-	const std::filesystem::path path = std::filesystem::temp_directory_path().string() + "rpc4stalker.json";
-	reader.setDumpPath(path.string());
+	// Initialize objects
+	DataReader dataReader{ std::filesystem::temp_directory_path().append("rpc4stalker.json") };
+
+	DiscordManager discordManager{};
+	discordManager.addTimestamp();
 
 	while (true) {
 		system("cls");
-		utils::logging::Debug(LOGO);
 
 		if (!discordManager.isReady()) {
 			utils::logging::Info("Searching for Discord...");
-			discordManager.create(DISCORD_APPLICATION_ID);
+			discordManager.create(890702387025702922);
 			utils::threads::wait(2500);
 			continue;
 		}
 
-		if (!reader.dumpValues()) {
+		RPCContents rpcContents{};
+		if (!dataReader.readData(&rpcContents)) {
 			utils::threads::wait(2500);
 			continue;
 		}
 
-		std::string localization = reader.loadValue({ "values", "localization" });
-		std::string level = reader.loadValue({ "values", "level" });
-		std::string faction_raw = reader.loadValue({ "values", "faction_raw" });
-		std::string faction = reader.loadValue({ "values", "faction" });
-		std::string task = reader.loadValue({ "values", "task" });
-
-		reader.printDump({
-			std::make_pair("Localization", localization),
-			std::make_pair("Level", level),
-			std::make_pair("Faction (raw)", faction_raw),
-			std::make_pair("Faction", faction),
-			std::make_pair("Task", task)
+		discordManager.setType(rpcContents.values.type);
+		discordManager.setDetails(rpcContents.values.details);
+		discordManager.setState(rpcContents.values.state);
+		discordManager.setLargeImage(rpcContents.values.largeImageUrl, rpcContents.values.largeImageText);
+		discordManager.setSmallImage(rpcContents.values.smallImageUrl, rpcContents.values.smallImageText);
+		discordManager.update([&](discord::Result result){
+			if (result == discord::Result::Ok) {
+				PrintValue("Activity Type", std::to_string(std::int32_t(rpcContents.values.type)));
+				PrintValue("Details", rpcContents.values.details);
+				PrintValue("State", rpcContents.values.state);
+				PrintValue("Large Image URL", rpcContents.values.largeImageUrl);
+				PrintValue("Large Image Text", rpcContents.values.largeImageText);
+				PrintValue("Small Image URL", rpcContents.values.smallImageUrl);
+				PrintValue("Small Image Text", rpcContents.values.smallImageText);
+			} else {
+				utils::logging::Warning("Failed to update Discord presence: " + std::int32_t(result));
+			}
 		});
-
-		std::string exploringLevel = utils::map::FindInMap(LANGUAGE_TABLE, localization, "Exploring: ") + level;
-		std::string patchImage = utils::map::FindInMap(COMMUNITY_TABLE, faction_raw, "stalker_patch_stalker");
-
-		discordManager.setSmallImage(patchImage.c_str(), faction.c_str());
-		discordManager.setDetails(exploringLevel.c_str());
-		discordManager.setState(task.c_str());
-		discordManager.update([&](discord::Result result){});
 
 		utils::threads::wait(2000);
 	}

@@ -9,7 +9,7 @@ bool DiscordManager::isReady() const {
 }
 
 void DiscordManager::addTimestamp() {
-    const std::chrono::system_clock::duration timestamp = std::chrono::system_clock::now().time_since_epoch();
+    const auto timestamp = std::chrono::system_clock::now().time_since_epoch();
     m_Activity.GetTimestamps().SetStart(std::chrono::duration_cast<std::chrono::seconds>(timestamp).count());
 }
 

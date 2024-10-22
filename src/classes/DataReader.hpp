@@ -1,27 +1,15 @@
 #pragma once
 
-#include <filesystem>
-#include <string>
-#include <vector>
-#include <json.hpp>
-
 #include "CodePageConverter.hpp"
+#include "abstract/FileReader.hpp"
+#include "../settings/structs.hpp"
 
-class DataReader {
+class DataReader : public FileReader {
 public:
-	inline std::string getAbsoluteDumpPath() { return !dumpPath.empty() ? dumpPath : ""; };
-	std::string getLocationString(std::vector<std::string>& location);
+	DataReader(std::filesystem::path path);
 
-	void setDumpPath(const std::string& path);
-	bool isDumpReady();
-
-	bool dumpValues();
-	std::string loadValue(std::vector<std::string> location);
-
-	void printDump(std::vector<std::pair<std::string, std::string>> pairs);
+	bool readData(RPCContents* rpcContents);
 
 private:
-	std::string dumpPath{};
-	nlohmann::json dump{};
 	CodePageConverter converter{ "CP1251", "UTF-8" };
 };

@@ -64,6 +64,9 @@
     <ClCompile Include="classes\ConfigReader.cpp">
       <Filter>src\classes</Filter>
     </ClCompile>
+    <ClCompile Include="classes\abstract\FileReader.cpp">
+      <Filter>src\classes\abstract</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="lib">
@@ -147,6 +150,9 @@
     <Filter Include="data\asi_loader\x64">
       <UniqueIdentifier>{a8f140a3-aef0-47a2-8010-b64b2945c29e}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\classes\abstract">
+      <UniqueIdentifier>{bb16e317-2483-45d4-aac6-23b0c3c49e61}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\lib\json\json.hpp">
@@ -169,9 +175,6 @@
     </ClInclude>
     <ClInclude Include="utils\utils.hpp">
       <Filter>src\utils</Filter>
-    </ClInclude>
-    <ClInclude Include="settings\globals.hpp">
-      <Filter>src\settings</Filter>
     </ClInclude>
     <ClInclude Include="utils\colorstream.hpp">
       <Filter>src\utils</Filter>
@@ -232,6 +235,12 @@
     </ClInclude>
     <ClInclude Include="classes\ConfigReader.hpp">
       <Filter>src\classes</Filter>
+    </ClInclude>
+    <ClInclude Include="settings\structs.hpp">
+      <Filter>src\settings</Filter>
+    </ClInclude>
+    <ClInclude Include="classes\abstract\FileReader.hpp">
+      <Filter>src\classes\abstract</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
